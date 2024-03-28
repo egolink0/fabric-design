@@ -1,60 +1,66 @@
-import { Button, Form, Input, InputNumber, QRCode, Radio, Collapse, Flex } from 'antd';
-import AppSubPanel from './AppSubPanel';
-import ColorSetter from '@/fabritor/UI/setter/ColorSetter/Solid';
-import { useContext, useEffect, useRef, useState } from 'react';
-import { createImage } from '@/editor/objects/image';
-import { GloablStateContext } from '@/context';
+import {
+  Button,
+  Form,
+  Input,
+  InputNumber,
+  QRCode,
+  Radio,
+  Collapse,
+  Flex,
+} from "antd";
+import AppSubPanel from "./AppSubPanel";
+import ColorSetter from "@/fabritor/UI/setter/ColorSetter/Solid";
+import { useContext, useEffect, useRef, useState } from "react";
+import { createImage } from "@/editor/objects/image";
+import { GloablStateContext } from "@/context";
 
 const { Item: FormItem } = Form;
 
-export default function QRCodePanel (props) {
+export default function QRCodePanel(props) {
   const { back } = props;
   const [form] = Form.useForm();
   const [form2] = Form.useForm();
-  const [QRCodeConfig, setQRCodeConfig] = useState({ value: 'fabritor' });
+  const [QRCodeConfig, setQRCodeConfig] = useState({ value: "fabritor" });
   const qrRef = useRef<HTMLDivElement>(null);
   const { editor } = useContext(GloablStateContext);
 
   const handleValuesChange = (values) => {
     setQRCodeConfig({
       ...QRCodeConfig,
-      ...values
+      ...values,
     });
-  }
+  };
 
   const add2Canvas = () => {
     if (!QRCodeConfig.value || !qrRef.current) return;
-    const canvasEl = qrRef.current.querySelector('canvas');
+    const canvasEl = qrRef.current.querySelector("canvas");
     if (!canvasEl) return;
     const img = new Image();
     img.onload = () => {
       createImage({
         imageSource: img,
-        canvas: editor.canvas
+        canvas: editor.canvas,
       });
-    }
+    };
     img.src = canvasEl.toDataURL();
-  }
+  };
 
   useEffect(() => {
     form.setFieldsValue({
-      value: 'fabritor',
-      size: 160
+      value: "fabritor",
+      size: 160,
     });
     form2.setFieldsValue({
-      color: '#000000',
-      bgColor: '#00000000',
+      color: "#000000",
+      bgColor: "#00000000",
       iconSize: 40,
-      errorLevel: 'M'
+      errorLevel: "M",
     });
   }, []);
 
   return (
     <AppSubPanel title="二维码" back={back}>
-      <Form
-        form={form}
-        onValuesChange={handleValuesChange}
-      >
+      <Form form={form} onValuesChange={handleValuesChange}>
         <FormItem name="value" label="文本">
           <Input />
         </FormItem>
@@ -65,13 +71,10 @@ export default function QRCodePanel (props) {
       <Collapse
         items={[
           {
-            key: '1',
-            label: '其他设置',
+            key: "1",
+            label: "其他设置",
             children: (
-              <Form
-                form={form2}
-                onValuesChange={handleValuesChange}
-              >
+              <Form form={form2} onValuesChange={handleValuesChange}>
                 <FormItem name="color" label="颜色">
                   <ColorSetter />
                 </FormItem>
@@ -79,7 +82,7 @@ export default function QRCodePanel (props) {
                   <ColorSetter />
                 </FormItem>
                 <FormItem name="errorLevel" label="纠错等级">
-                  <Radio.Group options={['L', 'M', 'Q', 'H']} />
+                  <Radio.Group options={["L", "M", "Q", "H"]} />
                 </FormItem>
                 <FormItem name="icon" label="内置图片">
                   <Input placeholder="仅支持图片链接" />
@@ -88,21 +91,24 @@ export default function QRCodePanel (props) {
                   <InputNumber />
                 </FormItem>
               </Form>
-            )
-          }
+            ),
+          },
         ]}
       />
-      {
-        QRCodeConfig.value ?
-        <Flex vertical align="center" gap={10} style={{ marginTop: 16 }} ref={qrRef}> 
-          <QRCode
-            type="canvas"
-            {...QRCodeConfig}
-            style={{ maxWidth: 200 }}
-          />
-          <Button type="primary" onClick={add2Canvas}>添加至画布</Button>
-        </Flex> : null
-      }
+      {QRCodeConfig.value ? (
+        <Flex
+          vertical
+          align="center"
+          gap={10}
+          style={{ marginTop: 16 }}
+          ref={qrRef}
+        >
+          <QRCode type="canvas" {...QRCodeConfig} style={{ maxWidth: 200 }} />
+          <Button type="primary" onClick={add2Canvas}>
+            添加至画布
+          </Button>
+        </Flex>
+      ) : null}
     </AppSubPanel>
-  )
+  );
 }

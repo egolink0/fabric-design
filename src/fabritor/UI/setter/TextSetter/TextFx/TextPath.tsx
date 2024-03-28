@@ -1,18 +1,19 @@
-import { Slider, Form, Switch } from 'antd';
-import { useEffect } from 'react';
+import { Slider, Form, Switch } from "antd";
+import { useEffect } from "react";
 
 const { Item: FormItem } = Form;
 
-export default function TextPath (props) {
+export default function TextPath(props) {
   const [form] = Form.useForm();
   const { value, onChange } = props;
 
   const handleChange = (v) => {
-    onChange && onChange({
-      ...value,
-      ...v
-    });
-  }
+    onChange &&
+      onChange({
+        ...value,
+        ...v,
+      });
+  };
 
   useEffect(() => {
     if (value) {
@@ -22,16 +23,17 @@ export default function TextPath (props) {
 
   return (
     <Form form={form} onValuesChange={handleChange} colon={false}>
-      <FormItem label={<span style={{ fontSize: 15, fontWeight: 'bold' }}>波浪型文字</span>} />
+      <FormItem
+        label={
+          <span style={{ fontSize: 15, fontWeight: "bold" }}>波浪型文字</span>
+        }
+      />
       <FormItem label="启用" name="enable" valuePropName="checked">
         <Switch />
       </FormItem>
       <FormItem label="偏移" name="offset">
-        <Slider
-          min={-100}
-          max={100}
-        />
+        <Slider min={-100} max={100} />
       </FormItem>
     </Form>
-  )
+  );
 }

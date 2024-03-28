@@ -1,8 +1,6 @@
-import { Divider } from 'antd';
+import { Divider } from "antd";
 
 export default function (props) {
   const { children } = props;
-  return (
-    <Divider>{children}</Divider>
-  )
+  return <Divider>{children}</Divider>;
 }

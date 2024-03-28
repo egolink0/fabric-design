@@ -1,5 +1,5 @@
-import { fabric } from 'fabric';
-import { uuid } from '@/utils';
+import { fabric } from "fabric";
+import { uuid } from "@/utils";
 
 export const loadSvgFromString = async (string) => {
   return new Promise((resolve) => {
@@ -8,7 +8,7 @@ export const loadSvgFromString = async (string) => {
       resolve(svg);
     });
   });
-}
+};
 
 export const loadSvgFromUrl = async (url) => {
   return new Promise((resolve) => {
@@ -17,16 +17,16 @@ export const loadSvgFromUrl = async (url) => {
       resolve(svg);
     });
   });
-}
+};
 
 export const createPathFromSvg = async (options) => {
   const { svgString, canvas, ...rest } = options || {};
 
-  const svg = await loadSvgFromString(svgString) as fabric.Path;
+  const svg = (await loadSvgFromString(svgString)) as fabric.Path;
 
   svg.set({
     ...rest,
-    id: uuid()
+    id: uuid(),
   });
 
   canvas.viewportCenterObject(svg);
@@ -35,4 +35,4 @@ export const createPathFromSvg = async (options) => {
   canvas.requestRenderAll();
 
   return svg;
-}
+};

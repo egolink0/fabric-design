@@ -1,7 +1,7 @@
-import { List } from 'antd';
-import Center from '../Center';
+import { List } from "antd";
+import Center from "../Center";
 
-export default function FList (props) {
+export default function FList(props) {
   const { dataSource, renderItemChildren, ...rest } = props;
   return (
     <List
@@ -10,17 +10,17 @@ export default function FList (props) {
         <List.Item
           className="fabritor-list-item"
           style={{
-            border: '2px solid transparent',
-            padding: '10px 16px'
+            border: "2px solid transparent",
+            padding: "10px 16px",
           }}
-          onClick={() => { item?.onClick?.(item) }}
+          onClick={() => {
+            item?.onClick?.(item);
+          }}
         >
-          <Center style={{ height: 40 }}>
-            {renderItemChildren(item)}
-          </Center>
+          <Center style={{ height: 40 }}>{renderItemChildren(item)}</Center>
         </List.Item>
       )}
       {...rest}
     />
-  )
+  );
 }

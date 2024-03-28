@@ -1,12 +1,16 @@
-import Cropper from 'cropperjs';
-import { useRef, useState, useEffect } from 'react';
-import { Button, Space } from 'antd';
-import { CloseOutlined, CheckOutlined, ExpandOutlined } from '@ant-design/icons';
-import { PANEL_WIDTH } from '@/config';
+import Cropper from "cropperjs";
+import { useRef, useState, useEffect } from "react";
+import { Button, Space } from "antd";
+import {
+  CloseOutlined,
+  CheckOutlined,
+  ExpandOutlined,
+} from "@ant-design/icons";
+import { PANEL_WIDTH } from "@/config";
 
-import 'cropperjs/dist/cropper.css';
+import "cropperjs/dist/cropper.css";
 
-export default function ClipSetter (props) {  
+export default function ClipSetter(props) {
   const { object } = props;
   const imgRef = useRef<HTMLImageElement>();
   const cropperRef = useRef<Cropper | null>(null);
@@ -21,25 +25,25 @@ export default function ClipSetter (props) {
       width: boundingRect.width,
       height: boundingRect.height,
       left: boundingRect.left + PANEL_WIDTH,
-      top: boundingRect.top + 50 // 50 is setter toolbar height
+      top: boundingRect.top + 50, // 50 is setter toolbar height
     });
     setTimeout(() => {
       cropperRef.current = new Cropper(imgRef.current, {
         scalable: false,
         autoCropArea: 1,
         viewMode: 3,
-        toggleDragModeOnDblclick: false
+        toggleDragModeOnDblclick: false,
       });
-      object.set('hasControls', false);
+      object.set("hasControls", false);
       object.canvas.requestRenderAll();
     }, 66);
-  }
+  };
 
   const handleCrop = () => {
     if (cropperRef.current) {
       const newImage = cropperRef.current.getCroppedCanvas().toDataURL();
       object.setSrc(newImage, () => {
-        object.set('hasControls', true);
+        object.set("hasControls", true);
         if (object.group) {
           object.group.addWithUpdate();
         }
@@ -48,19 +52,19 @@ export default function ClipSetter (props) {
       });
       setShowCrop(false);
     }
-  }
+  };
 
   const changeRatio = (r) => {
     if (cropperRef.current) {
       cropperRef.current.setAspectRatio(r);
     }
-  }
+  };
 
   const cancel = () => {
     setShowCrop(false);
-    object.set('hasControls', true);
+    object.set("hasControls", true);
     object.canvas.requestRenderAll();
-  }
+  };
 
   useEffect(() => {
     return () => {
@@ -68,41 +72,72 @@ export default function ClipSetter (props) {
         cropperRef.current.destroy();
         cropperRef.current = null;
       }
-    }
+    };
   }, []);
 
   return (
     <div>
-      <Button block icon={<ExpandOutlined />} onClick={startCrop}>裁剪</Button>
+      <Button block icon={<ExpandOutlined />} onClick={startCrop}>
+        裁剪
+      </Button>
 
-      {
-        showCrop ?
+      {showCrop ? (
         <div
           style={{
-            position: 'fixed',
+            position: "fixed",
             left: 0,
             top: 0,
             right: 0,
             bottom: 0,
-            backgroundColor: 'rgba(0,0,0,.65)',
-            zIndex: 1000
+            backgroundColor: "rgba(0,0,0,.65)",
+            zIndex: 1000,
           }}
           className="fabritor-crop-wrapper"
         >
           <div
             style={{
-            position: 'absolute',
-            zIndex: 1001,
-            left: imgInfo.left,
-            top: imgInfo.top - 38
-          }}
+              position: "absolute",
+              zIndex: 1001,
+              left: imgInfo.left,
+              top: imgInfo.top - 38,
+            }}
           >
             <Space.Compact block>
-              <Button onClick={() => { changeRatio(1/1) }}>1:1</Button>
-              <Button onClick={() => { changeRatio(4/3) }}>4:3</Button>
-              <Button onClick={() => { changeRatio(3/4) }}>3:4</Button>
-              <Button onClick={() => { changeRatio(16/9) }}>16:9</Button>
-              <Button onClick={() => { changeRatio(9/16) }}>9:16</Button>
+              <Button
+                onClick={() => {
+                  changeRatio(1 / 1);
+                }}
+              >
+                1:1
+              </Button>
+              <Button
+                onClick={() => {
+                  changeRatio(4 / 3);
+                }}
+              >
+                4:3
+              </Button>
+              <Button
+                onClick={() => {
+                  changeRatio(3 / 4);
+                }}
+              >
+                3:4
+              </Button>
+              <Button
+                onClick={() => {
+                  changeRatio(16 / 9);
+                }}
+              >
+                16:9
+              </Button>
+              <Button
+                onClick={() => {
+                  changeRatio(9 / 16);
+                }}
+              >
+                9:16
+              </Button>
               <Button icon={<CloseOutlined />} onClick={cancel} />
               <Button icon={<CheckOutlined />} onClick={handleCrop} />
             </Space.Compact>
@@ -111,17 +146,21 @@ export default function ClipSetter (props) {
             style={{
               width: imgInfo.width,
               height: imgInfo.height,
-              position: 'absolute',
+              position: "absolute",
               zIndex: 1001,
               left: imgInfo.left,
-              top: imgInfo.top
+              top: imgInfo.top,
             }}
             onDoubleClick={handleCrop}
           >
-            <img ref={imgRef} src={imgInfo.src} style={{ display: 'block', maxWidth: '100%' }} />
-          </div> 
-        </div> : null
-      }
+            <img
+              ref={imgRef}
+              src={imgInfo.src}
+              style={{ display: "block", maxWidth: "100%" }}
+            />
+          </div>
+        </div>
+      ) : null}
     </div>
-  )
+  );
 }

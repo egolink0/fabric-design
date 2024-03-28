@@ -1,8 +1,8 @@
-import { Popover, Button } from 'antd';
-import { FileImageOutlined } from '@ant-design/icons';
-import ImageSelector from '@/fabritor/components/ImageSelector';
+import { Popover, Button } from "antd";
+import { FileImageOutlined } from "@ant-design/icons";
+import ImageSelector from "@/fabritor/components/ImageSelector";
 
-export default function ReplaceSetter (props) {
+export default function ReplaceSetter(props) {
   const { onChange } = props;
 
   return (
@@ -13,7 +13,9 @@ export default function ReplaceSetter (props) {
       placement="top"
       trigger="click"
     >
-      <Button type="primary" block icon={<FileImageOutlined />}>替换图片</Button>
+      <Button type="primary" block icon={<FileImageOutlined />}>
+        替换图片
+      </Button>
     </Popover>
   );
 }

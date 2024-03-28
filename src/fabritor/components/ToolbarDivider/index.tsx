@@ -1,7 +1,5 @@
-import { Divider } from 'antd';
+import { Divider } from "antd";
 
-export default function ToolbarDivider () {
-  return (
-    <Divider type="vertical" style={{ height: 32 }} />
-  )
+export default function ToolbarDivider() {
+  return <Divider type="vertical" style={{ height: 32 }} />;
 }

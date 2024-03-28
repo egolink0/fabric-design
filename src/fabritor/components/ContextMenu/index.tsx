@@ -1,30 +1,37 @@
-import { useImperativeHandle, forwardRef, useState, useContext } from 'react';
-import type { MenuProps } from 'antd';
-import { Dropdown, Flex } from 'antd';
-import { SKETCH_ID } from '@/utils/constants';
-import { copyObject, pasteObject, removeObject, groupSelection, ungroup, changeLayerLevel } from '@/utils/helper';
-import { GloablStateContext } from '@/context';
+import { useImperativeHandle, forwardRef, useState, useContext } from "react";
+import type { MenuProps } from "antd";
+import { Dropdown, Flex } from "antd";
+import { SKETCH_ID } from "@/utils/constants";
+import {
+  copyObject,
+  pasteObject,
+  removeObject,
+  groupSelection,
+  ungroup,
+  changeLayerLevel,
+} from "@/utils/helper";
+import { GloablStateContext } from "@/context";
 
 // ⌘ C
 const ContextMenuItem = (props) => {
   const { label, keyboard, cmdKey = false } = props;
-  const isMac = navigator.userAgent.indexOf('Mac OS X') > -1;
+  const isMac = navigator.userAgent.indexOf("Mac OS X") > -1;
 
   const getCmdkey = () => {
     if (cmdKey) {
-      if (isMac) return '⌘';
-      return 'Ctrl'
+      if (isMac) return "⌘";
+      return "Ctrl";
     }
-    return '';
-  }
+    return "";
+  };
 
   return (
     <Flex gap={68} justify="space-between">
       <span>{label}</span>
       <span>{`${getCmdkey()} ${keyboard}`}</span>
     </Flex>
-  )
-}
+  );
+};
 
 const ContextMenu = (props, ref) => {
   const { object, noCareOpen } = props;
@@ -36,112 +43,113 @@ const ContextMenu = (props, ref) => {
       return [
         {
           label: <ContextMenuItem label="粘贴" keyboard="V" cmdKey />,
-          key: 'paste',
-        }
-      ]
+          key: "paste",
+        },
+      ];
     }
 
-    const menuItems: MenuProps['items']  = [
+    const menuItems: MenuProps["items"] = [
       {
         label: <ContextMenuItem label="复制" keyboard="C" cmdKey />,
-        key: 'copy',
+        key: "copy",
       },
       {
         label: <ContextMenuItem label="粘贴" keyboard="V" cmdKey />,
-        key: 'paste',
+        key: "paste",
       },
       {
-        label: '创建副本',
-        key: 'copy&paste',
+        label: "创建副本",
+        key: "copy&paste",
       },
       {
         label: <ContextMenuItem label="删除" keyboard="DEL" />,
-        key: 'del',
+        key: "del",
       },
-    ]
+    ];
 
-    if (object.type === 'activeSelection') {
+    if (object.type === "activeSelection") {
       menuItems.push({
-        type: 'divider',
+        type: "divider",
       });
       menuItems.push({
-        label: '建组',
-        key: 'group',
+        label: "建组",
+        key: "group",
       });
     }
 
-    if (object.type === 'group' && !object.sub_type) {
+    if (object.type === "group" && !object.sub_type) {
       menuItems.push({
-        type: 'divider',
+        type: "divider",
       });
       menuItems.push({
-        label: '取消建组',
-        key: 'ungroup',
+        label: "取消建组",
+        key: "ungroup",
       });
     }
 
-    if (object.type !== 'activeSelection') {
+    if (object.type !== "activeSelection") {
       menuItems.push({
-        type: 'divider',
+        type: "divider",
       });
       menuItems.push({
-        label: '图层',
-        key: 'layer',
+        label: "图层",
+        key: "layer",
         children: [
           {
-            label: '上移',
-            key: 'layer-up',
+            label: "上移",
+            key: "layer-up",
           },
           {
-            label: '置顶',
-            key: 'layer-top',
+            label: "置顶",
+            key: "layer-top",
           },
           {
-            label: '下移',
-            key: 'layer-down',
+            label: "下移",
+            key: "layer-down",
           },
           {
-            label: '置底',
-            key: 'layer-bottom'
-          }
-        ]
+            label: "置底",
+            key: "layer-bottom",
+          },
+        ],
       });
     }
-    
+
     return menuItems;
-  }
+  };
 
   const handleClick = async ({ key }) => {
     switch (key) {
-      case 'copy':
+      case "copy":
         await copyObject(editor.canvas, object);
         break;
-      case 'paste':
+      case "paste":
         pasteObject(editor.canvas);
         break;
-      case 'copy&paste':
+      case "copy&paste":
         await copyObject(editor.canvas, object);
         await pasteObject(editor.canvas);
         break;
-      case 'del':
+      case "del":
         removeObject(object, editor.canvas);
         break;
-      case 'group':
+      case "group":
         groupSelection(editor.canvas, object);
         break;
-      case 'ungroup':
+      case "ungroup":
         ungroup(editor.canvas, object);
         break;
-      case 'layer-up':
-      case 'layer-top':
-      case 'layer-down':
-      case 'layer-bottom':
+      case "layer-up":
+      case "layer-top":
+      case "layer-down":
+      case "layer-bottom":
         changeLayerLevel(key, editor, object);
+        return;
       default:
-        break; 
+        break;
     }
     setOpen(false);
-  } 
+  };
 
   useImperativeHandle(ref, () => ({
     show: () => setOpen(true),
@@ -150,13 +158,13 @@ const ContextMenu = (props, ref) => {
 
   return (
     <Dropdown
-      menu={{ items: renderMenuItems(), onClick: handleClick }} 
-      trigger={['contextMenu']}
+      menu={{ items: renderMenuItems(), onClick: handleClick }}
+      trigger={["contextMenu"]}
       open={noCareOpen ? undefined : open}
     >
       {props.children}
     </Dropdown>
-  )
-}
+  );
+};
 
 export default forwardRef(ContextMenu);

@@ -1,18 +1,22 @@
-import { useContext, useEffect } from 'react';
-import { fabric } from 'fabric';
-import { Slider, Form } from 'antd';
-import ColorSetter from '../../ColorSetter';
-import { GloablStateContext } from '@/context';
-import TextShadow from './TextShadow';
-import TextPath from './TextPath';
-import TextPattern from './TextPattern';
-import { drawTextPath, getPathOffset, removeTextPath } from '@/editor/objects/textbox';
-import { loadImageDom } from '@/editor/objects/image';
-import { transformColors2Fill, transformFill2Colors } from '@/utils';
+import { useContext, useEffect } from "react";
+import { fabric } from "fabric";
+import { Slider, Form } from "antd";
+import ColorSetter from "../../ColorSetter";
+import { GloablStateContext } from "@/context";
+import TextShadow from "./TextShadow";
+import TextPath from "./TextPath";
+import TextPattern from "./TextPattern";
+import {
+  drawTextPath,
+  getPathOffset,
+  removeTextPath,
+} from "@/editor/objects/textbox";
+import { loadImageDom } from "@/editor/objects/image";
+import { transformColors2Fill, transformFill2Colors } from "@/utils";
 
 const { Item: FormItem } = Form;
 
-export default function TextFx () {
+export default function TextFx() {
   const [form] = Form.useForm();
   const { object, editor } = useContext(GloablStateContext);
 
@@ -20,67 +24,69 @@ export default function TextFx () {
     if (!object) return;
     if (!pattern.enable || !pattern.url) {
       if (object.fill instanceof fabric.Pattern) {
-        object.set('fill', '#000000');
+        object.set("fill", "#000000");
       }
       return Promise.resolve();
     }
 
     try {
       const img = await loadImageDom(pattern.url);
-      object.set('fill', new fabric.Pattern({
-        source: img as HTMLImageElement,
-        repeat: 'repeat'
-      }));
-    } catch(e) {
+      object.set(
+        "fill",
+        new fabric.Pattern({
+          source: img as HTMLImageElement,
+          repeat: "repeat",
+        })
+      );
+    } catch (e) {
       console.log(e);
     }
-  }
+  };
 
   const handleStroke = (_stroke) => {
     let stroke = transformColors2Fill(_stroke);
-    if (typeof stroke !== 'string') {
+    if (typeof stroke !== "string") {
       stroke = new fabric.Gradient(stroke);
     }
-    object.set('stroke', stroke);
-  }
+    object.set("stroke", stroke);
+  };
 
   const handleFxValueChange = async (values) => {
     if (!object || !editor) return;
     const keys = Object.keys(values);
-    for (let key of keys) {
+    for (const key of keys) {
       const v = values[key];
-      if (key === 'shadow') {
+      if (key === "shadow") {
         if (v.enable) {
-          // @ts-ignore object shadow
           object.shadow = {
             color: v.color,
             blur: v.blur,
             offsetX: v.offset,
-            offsetY: v.offset
+            offsetY: v.offset,
           };
         } else {
           object.shadow = undefined;
         }
-      } else if (key === 'path') {
+      } else if (key === "path") {
         if (v.enable) {
           drawTextPath(object, v.offset);
         } else {
           removeTextPath(object);
         }
-      } else if (key === 'pattern') {
+      } else if (key === "pattern") {
         await handleTextPattern(v);
-      } else if (key === 'stroke') {
+      } else if (key === "stroke") {
         handleStroke(v);
       } else {
-        object.set(key as (keyof fabric.Object), v);
+        object.set(key as keyof fabric.Object, v);
       }
     }
     editor.canvas.requestRenderAll();
     editor.fireCustomModifiedEvent();
-  }
+  };
 
   const initObjectFx = () => {
-    const fill = object.fill;
+    const { fill } = object;
     form.setFieldsValue({
       stroke: transformFill2Colors(object.stroke),
       strokeWidth: object.strokeWidth || 0,
@@ -89,21 +95,21 @@ export default function TextFx () {
         enable: !!object.shadow,
         color: object.shadow?.color || object.stroke,
         blur: object.shadow?.blur || 0,
-        offset: object.shadow?.offsetX || 0
+        offset: object.shadow?.offsetX || 0,
       },
       path: {
         enable: !!object.path,
-        offset: getPathOffset(object)
+        offset: getPathOffset(object),
       },
       pattern: {
         enable: fill instanceof fabric.Pattern,
-        url: fill?.source?.src
-      }
+        url: fill?.source?.src,
+      },
     });
-  }
+  };
 
   useEffect(() => {
-    if (object && object.type === 'f-text') {
+    if (object && object.type === "f-text") {
       initObjectFx();
     }
   }, [object]);
@@ -115,28 +121,27 @@ export default function TextFx () {
       colon={false}
       style={{ marginTop: 24 }}
     >
-      <FormItem label={<span style={{ fontSize: 15, fontWeight: 'bold' }}>描边</span>} />
+      <FormItem
+        label={<span style={{ fontSize: 15, fontWeight: "bold" }}>描边</span>}
+      />
       <FormItem label="颜色" name="stroke">
         <ColorSetter />
       </FormItem>
       <FormItem label="粗细" name="strokeWidth">
-        <Slider
-          min={0}
-          max={20}
-        />
+        <Slider min={0} max={20} />
       </FormItem>
 
       <FormItem name="shadow" style={{ marginBottom: 0 }}>
         <TextShadow />
       </FormItem>
-      
+
       <FormItem name="path" style={{ marginBottom: 0 }}>
         <TextPath />
       </FormItem>
-      
+
       <FormItem name="pattern">
         <TextPattern />
       </FormItem>
     </Form>
-  )
+  );
 }

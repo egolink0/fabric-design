@@ -1,14 +1,12 @@
-import { InputNumber, Flex } from 'antd';
-import { useEffect, useState } from 'react';
+import { InputNumber, Flex } from "antd";
+import { useEffect, useState } from "react";
 
 const SizeInput = (props) => {
-  const { prefixText = '宽', ...rest } = props;
+  const { prefixText = "宽", ...rest } = props;
   return (
     <InputNumber
       prefix={
-        <span
-          style={{ color: 'rgba(0, 0, 0, 0.5)', marginRight: 4 }}
-        >
+        <span style={{ color: "rgba(0, 0, 0, 0.5)", marginRight: 4 }}>
           {prefixText}
         </span>
       }
@@ -19,11 +17,11 @@ const SizeInput = (props) => {
       style={{ flex: 1 }}
       {...rest}
     />
-  )
-}
+  );
+};
 
 // @TODO preset size
-export default function SizeSetter (props) {
+export default function SizeSetter(props) {
   const { value, onChange } = props;
   const [innerValue, setInnerValue] = useState<number[]>([]);
 
@@ -31,7 +29,7 @@ export default function SizeSetter (props) {
     const _innerValue = [...innerValue];
     _innerValue[index] = v;
     onChange?.(_innerValue);
-  }
+  };
 
   useEffect(() => {
     setInnerValue(value);
@@ -39,8 +37,19 @@ export default function SizeSetter (props) {
 
   return (
     <Flex gap={8}>
-      <SizeInput value={innerValue?.[0]} onChange={(v) => { handleChange(v, 0) }} />
-      <SizeInput prefixText="高" value={innerValue?.[1]} onChange={(v) => { handleChange(v, 1) }} />
+      <SizeInput
+        value={innerValue?.[0]}
+        onChange={(v) => {
+          handleChange(v, 0);
+        }}
+      />
+      <SizeInput
+        prefixText="高"
+        value={innerValue?.[1]}
+        onChange={(v) => {
+          handleChange(v, 1);
+        }}
+      />
     </Flex>
-  )
+  );
 }

@@ -1,19 +1,19 @@
-import { fabric } from 'fabric';
-import { useContext, useEffect, useState } from 'react';
-import { Col, Form, Row } from 'antd';
-import { FunctionOutlined, RightOutlined } from '@ant-design/icons';
-import ReplaceSetter from './ReplaceSetter';
-import { GloablStateContext } from '@/context';
-import BorderSetter from './BorderSetter';
-import { getObjectBorderType, getStrokeDashArray } from '../BorderSetter'
-import ClipSetter from './Clip';
-import FList from '@/fabritor/components/FList';
-import MoreConfigWrapper from '../Form/MoreConfigWrapper';
-import ImageFx from './ImageFx';
+import { fabric } from "fabric";
+import { useContext, useEffect, useState } from "react";
+import { Col, Form, Row } from "antd";
+import { FunctionOutlined, RightOutlined } from "@ant-design/icons";
+import ReplaceSetter from "./ReplaceSetter";
+import { GloablStateContext } from "@/context";
+import BorderSetter from "./BorderSetter";
+import { getObjectBorderType, getStrokeDashArray } from "../BorderSetter";
+import ClipSetter from "./Clip";
+import FList from "@/fabritor/components/FList";
+import MoreConfigWrapper from "../Form/MoreConfigWrapper";
+import ImageFx from "./ImageFx";
 
 const { Item: FormItem } = Form;
 
-export default function ImageSetter () {
+export default function ImageSetter() {
   const { object, editor } = useContext(GloablStateContext);
   const [form] = Form.useForm();
   const [openFx, setOpenFx] = useState(false);
@@ -21,10 +21,12 @@ export default function ImageSetter () {
   const IMAGE_ADVANCE_CONFIG = [
     {
       icon: <FunctionOutlined style={{ fontSize: 22 }} />,
-      label: '滤镜',
-      key: 'fx',
-      onClick: () => { setOpenFx(true) }
-    }
+      label: "滤镜",
+      key: "fx",
+      onClick: () => {
+        setOpenFx(true);
+      },
+    },
   ];
 
   const handleImageReplace = (base64) => {
@@ -33,23 +35,28 @@ export default function ImageSetter () {
         editor.canvas.requestRenderAll();
       });
     }
-  }
+  };
 
   const handleBorder = (border) => {
-    const { type, stroke = '#000000', strokeWidth, borderRadius } = border || {};
-    if (type === 'none') {
+    const {
+      type,
+      stroke = "#000000",
+      strokeWidth,
+      borderRadius,
+    } = border || {};
+    if (type === "none") {
       object.setBorder({ stroke: null, borderRadius });
     } else {
       object.setBorder({
         stroke,
         strokeWidth,
         borderRadius,
-        strokeDashArray: getStrokeDashArray(border)
+        strokeDashArray: getStrokeDashArray(border),
       });
     }
 
     editor.canvas.requestRenderAll();
-  }
+  };
 
   const handleValuesChange = (values) => {
     if (values.img) {
@@ -63,7 +70,7 @@ export default function ImageSetter () {
       handleBorder(values.border);
     }
     editor.fireCustomModifiedEvent();
-  }
+  };
 
   useEffect(() => {
     if (object) {
@@ -72,55 +79,53 @@ export default function ImageSetter () {
         border: {
           type: getObjectBorderType(border),
           ...border,
-          stroke: border.stroke || '#000000'
+          stroke: border.stroke || "#000000",
         },
-        opacity: object.opacity
+        opacity: object.opacity,
       });
     }
   }, [object]);
 
   return (
     <>
-    <Form
-      form={form}
-      onValuesChange={handleValuesChange}
-      colon={false}
-    >
-      <FormItem name="img">
-        <ReplaceSetter />
-      </FormItem>
-      <Row gutter={8}>
-        <Col span={12}>
-          <FormItem>
-            <ClipSetter object={object} />
-          </FormItem>
-        </Col>
-        <Col span={12}>
-          <FormItem name="border">
-            <BorderSetter />
-          </FormItem>
-        </Col>
-      </Row>
-    </Form>
-    <FList 
-      dataSource={IMAGE_ADVANCE_CONFIG}
-      renderItemChildren={(item) => (
-        <>
-          {item.icon}
-          <span style={{ fontSize: 16, fontWeight: 'bold', margin: '0 6px 0 10px' }}>
-            {item.label}
-          </span>
-          <RightOutlined />
-        </>
-      )}
-    />
-    <MoreConfigWrapper
-      open={openFx}
-      setOpen={setOpenFx}
-      title="滤镜"
-    >
-      <ImageFx />
-    </MoreConfigWrapper>
+      <Form form={form} onValuesChange={handleValuesChange} colon={false}>
+        <FormItem name="img">
+          <ReplaceSetter />
+        </FormItem>
+        <Row gutter={8}>
+          <Col span={12}>
+            <FormItem>
+              <ClipSetter object={object} />
+            </FormItem>
+          </Col>
+          <Col span={12}>
+            <FormItem name="border">
+              <BorderSetter />
+            </FormItem>
+          </Col>
+        </Row>
+      </Form>
+      <FList
+        dataSource={IMAGE_ADVANCE_CONFIG}
+        renderItemChildren={(item) => (
+          <>
+            {item.icon}
+            <span
+              style={{
+                fontSize: 16,
+                fontWeight: "bold",
+                margin: "0 6px 0 10px",
+              }}
+            >
+              {item.label}
+            </span>
+            <RightOutlined />
+          </>
+        )}
+      />
+      <MoreConfigWrapper open={openFx} setOpen={setOpenFx} title="滤镜">
+        <ImageFx />
+      </MoreConfigWrapper>
     </>
-  )
+  );
 }

@@ -1,31 +1,35 @@
-import { fabric } from 'fabric';
+import { fabric } from "fabric";
 
 export const createFImageClass = () => {
-  // @ts-ignore custom image
   fabric.FImage = fabric.util.createClass(fabric.Group, {
-    type: 'f-image',
+    type: "f-image",
 
-    initialize (options, alreayGrouped = false) {
+    initialize(options, alreayGrouped = false) {
       const { image, imageBorder = {}, ...rest } = options;
       image.set({
-        originX: 'center',
-        originY: 'center'
+        originX: "center",
+        originY: "center",
       });
       this.img = image;
       this.borderRect = this._createBorderRect(imageBorder);
       this.img.clipPath = this._createClipPath();
-      this.callSuper('initialize', [this.img, this.borderRect], {
-        borderColor: '#FF2222',
-        borderDashArray: null,
-        borderScaleFactor: 2,
-        padding: 0,
-        subTargetCheck: false,
-        imageBorder,
-        ...rest
-      }, alreayGrouped);
+      this.callSuper(
+        "initialize",
+        [this.img, this.borderRect],
+        {
+          borderColor: "#FF2222",
+          borderDashArray: null,
+          borderScaleFactor: 2,
+          padding: 0,
+          subTargetCheck: false,
+          imageBorder,
+          ...rest,
+        },
+        alreayGrouped,
+      );
     },
 
-    _createBorderRect ({ stroke, strokeWidth, borderRadius }) {
+    _createBorderRect({ stroke, strokeWidth, borderRadius }) {
       const width = this.img.getScaledWidth();
       const height = this.img.getScaledHeight();
       const options = {
@@ -33,31 +37,31 @@ export const createFImageClass = () => {
         height,
         rx: borderRadius || 0,
         ry: borderRadius || 0,
-        originX: 'center',
-        originY: 'center',
-        fill: '#00000000',
-        paintFirst: 'fill'
+        originX: "center",
+        originY: "center",
+        fill: "#00000000",
+        paintFirst: "fill",
       };
       if (stroke) options.stroke = stroke;
       if (strokeWidth) options.strokeWidth = strokeWidth;
       return new fabric.Rect(options);
     },
 
-    _createClipPath () {
-      const width = this.img.width;
-      const height = this.img.height;
-      console.log(width, height)
+    _createClipPath() {
+      const { width } = this.img;
+      const { height } = this.img;
+      console.log(width, height);
       return new fabric.Rect({
-        originX: 'center',
-        originY: 'center',
+        originX: "center",
+        originY: "center",
         width,
         height,
         rx: this.borderRect.rx || 0,
-        ry: this.borderRect.ry || 0
+        ry: this.borderRect.ry || 0,
       });
     },
 
-    setSrc (src, callback) {
+    setSrc(src, callback) {
       this.img.setSrc(src, () => {
         const width = this.img.getScaledWidth();
         const height = this.img.getScaledHeight();
@@ -65,49 +69,49 @@ export const createFImageClass = () => {
         this.borderRect.set({ width, height, dirty: true });
         this.img.set({
           clipPath: this._createClipPath(),
-          dirty: true
+          dirty: true,
         });
         this.addWithUpdate();
         callback && callback();
       });
     },
 
-    getSrc () {
+    getSrc() {
       return this.img.getSrc();
     },
 
-    setBorder (b) {
+    setBorder(b) {
       this.borderRect.set({
         stroke: b.stroke || null,
         strokeWidth: b.strokeWidth || 1,
         rx: b.borderRadius || 0,
         ry: b.borderRadius || 0,
-        strokeDashArray: b.strokeDashArray || null
+        strokeDashArray: b.strokeDashArray || null,
       });
       this.img.setCoords();
       this.img.set({
         clipPath: this._createClipPath(),
-        dirty: true
+        dirty: true,
       });
-      this.imageBorder = {...b};
+      this.imageBorder = { ...b };
       this.addWithUpdate();
     },
 
-    getBorder () {
+    getBorder() {
       return this.imageBorder;
     },
 
     // http://fabricjs.com/fabric-filters
-    applyFilter (filter) {
+    applyFilter(filter) {
       try {
         this.img.filters = filter ? [filter] : [];
         this.img.applyFilters();
-      } catch(e) {
+      } catch (e) {
         console.log(e);
       }
     },
 
-    applyFilterValue (prop, value) {
+    applyFilterValue(prop, value) {
       const filter = this.getFilter();
       if (filter) {
         filter[prop] = value;
@@ -116,16 +120,16 @@ export const createFImageClass = () => {
       }
     },
 
-    getFilter () {
+    getFilter() {
       return this.img.filters[0];
-    }
+    },
   });
 
   fabric.FImage.fromObject = (object, callback) => {
     const { objects, ...options } = object;
-    const imgJson = {...objects[0]};
+    const imgJson = { ...objects[0] };
     fabric.Image.fromObject(imgJson, (img) => {
       callback(new fabric.FImage({ image: img, ...options }, true));
     });
-  }
-}
+  };
+};
