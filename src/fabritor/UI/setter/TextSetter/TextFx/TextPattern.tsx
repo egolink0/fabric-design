@@ -1,6 +1,5 @@
 import { Form, Switch } from "antd";
 import { useEffect } from "react";
-import ImageSelector from "@/fabritor/components/ImageSelector";
 
 const { Item: FormItem } = Form;
 
@@ -31,9 +30,6 @@ export default function TextPattern(props) {
       />
       <FormItem label="Enable" name="enable" valuePropName="checked">
         <Switch />
-      </FormItem>
-      <FormItem name="url">
-        <ImageSelector size="middle" type="default" />
       </FormItem>
     </Form>
   );
