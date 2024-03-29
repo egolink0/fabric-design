@@ -7,7 +7,6 @@ import t2 from "./t2.json";
 import Editor from "@/editor";
 import { Flex, Image } from "antd";
 import { uuid } from "@/utils";
-import LoadLocalTemplate from "./LoadLocalTemplate";
 
 export default function TemplatePanel() {
   const { editor } = useContext(GloablStateContext);
@@ -157,7 +156,6 @@ export default function TemplatePanel() {
       <div ref={workspaceEl} style={{ display: "none" }}>
         <canvas ref={canvasRef} style={{ display: "none" }} />
       </div>
-      <LoadLocalTemplate addNewJson={addNewJson} />
       {renderList()}
     </>
   );
