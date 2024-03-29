@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { GloablStateContext } from "@/context";
+import { GlobalStateContext } from "@/context";
 import {
   LockOutlined,
   UnlockOutlined,
@@ -60,7 +60,7 @@ const ALIGH_TYPES = [
 ];
 
 export default function CommonSetter() {
-  const { object, editor } = useContext(GloablStateContext);
+  const { object, editor } = useContext(GlobalStateContext);
   const [lock, setLock] = useState(false);
   const [opacity, setOpacity] = useState(1);
 

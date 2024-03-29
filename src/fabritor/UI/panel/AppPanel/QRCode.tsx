@@ -12,7 +12,7 @@ import AppSubPanel from "./AppSubPanel";
 import ColorSetter from "@/fabritor/UI/setter/ColorSetter/Solid";
 import { useContext, useEffect, useRef, useState } from "react";
 import { createImage } from "@/editor/objects/image";
-import { GloablStateContext } from "@/context";
+import { GlobalStateContext } from "@/context";
 
 const { Item: FormItem } = Form;
 
@@ -22,7 +22,7 @@ export default function QRCodePanel(props) {
   const [form2] = Form.useForm();
   const [QRCodeConfig, setQRCodeConfig] = useState({ value: "fabritor" });
   const qrRef = useRef<HTMLDivElement>(null);
-  const { editor } = useContext(GloablStateContext);
+  const { editor } = useContext(GlobalStateContext);
 
   const handleValuesChange = (values) => {
     setQRCodeConfig({

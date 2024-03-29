@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import { fabric } from "fabric";
 import { Slider, Form } from "antd";
 import ColorSetter from "../../ColorSetter";
-import { GloablStateContext } from "@/context";
+import { GlobalStateContext } from "@/context";
 import TextShadow from "./TextShadow";
 import TextPath from "./TextPath";
 import TextPattern from "./TextPattern";
@@ -18,7 +18,7 @@ const { Item: FormItem } = Form;
 
 export default function TextFx() {
   const [form] = Form.useForm();
-  const { object, editor } = useContext(GloablStateContext);
+  const { object, editor } = useContext(GlobalStateContext);
 
   const handleTextPattern = async (pattern) => {
     if (!object) return;

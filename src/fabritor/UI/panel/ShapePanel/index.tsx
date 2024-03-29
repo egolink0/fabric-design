@@ -11,12 +11,12 @@ import {
 import createRect from "@/editor/objects/rect";
 import createShape from "@/editor/objects/shape";
 import { useContext } from "react";
-import { GloablStateContext } from "@/context";
+import { GlobalStateContext } from "@/context";
 import { createPathFromSvg } from "@/editor/objects/path";
 import Center from "@/fabritor/components/Center";
 
 export default function ShapePanel() {
-  const { editor, roughSvg } = useContext(GloablStateContext);
+  const { editor, roughSvg } = useContext(GlobalStateContext);
 
   const addLine = (item) => {
     const { type, options = {} } = item;

@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { Col, Form, Row } from "antd";
 import { FunctionOutlined, RightOutlined } from "@ant-design/icons";
 import ReplaceSetter from "./ReplaceSetter";
-import { GloablStateContext } from "@/context";
+import { GlobalStateContext } from "@/context";
 import BorderSetter from "./BorderSetter";
 import { getObjectBorderType, getStrokeDashArray } from "../BorderSetter";
 import ClipSetter from "./Clip";
@@ -14,7 +14,7 @@ import ImageFx from "./ImageFx";
 const { Item: FormItem } = Form;
 
 export default function ImageSetter() {
-  const { object, editor } = useContext(GloablStateContext);
+  const { object, editor } = useContext(GlobalStateContext);
   const [form] = Form.useForm();
   const [openFx, setOpenFx] = useState(false);
 

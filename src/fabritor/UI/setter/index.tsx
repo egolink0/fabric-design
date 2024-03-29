@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Divider, Layout, Typography } from "antd";
-import { GloablStateContext } from "@/context";
+import { GlobalStateContext } from "@/context";
 import { SKETCH_ID } from "@/utils/constants";
 import SketchSetter from "./SketchSetter";
 import TextSetter from "./TextSetter";
@@ -23,7 +23,7 @@ const siderStyle: React.CSSProperties = {
 };
 
 export default function Setter() {
-  const { object, isReady } = useContext(GloablStateContext);
+  const { object, isReady } = useContext(GlobalStateContext);
   const objectType = object?.get?.("type") || "";
   console.log("objectType", objectType, object);
 

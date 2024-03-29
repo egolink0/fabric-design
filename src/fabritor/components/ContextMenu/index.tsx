@@ -10,7 +10,7 @@ import {
   ungroup,
   changeLayerLevel,
 } from "@/utils/helper";
-import { GloablStateContext } from "@/context";
+import { GlobalStateContext } from "@/context";
 
 // ⌘ C
 const ContextMenuItem = (props) => {
@@ -36,7 +36,7 @@ const ContextMenuItem = (props) => {
 const ContextMenu = (props, ref) => {
   const { object, noCareOpen } = props;
   const [open, setOpen] = useState(false);
-  const { editor } = useContext(GloablStateContext);
+  const { editor } = useContext(GlobalStateContext);
 
   const renderMenuItems = () => {
     if (!object || object.id === SKETCH_ID) {

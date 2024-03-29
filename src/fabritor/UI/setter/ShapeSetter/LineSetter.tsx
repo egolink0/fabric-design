@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
 import { Form, Radio, Switch } from "antd";
-import { GloablStateContext } from "@/context";
+import { GlobalStateContext } from "@/context";
 import ColorSetter from "../ColorSetter/Solid";
 import SliderInputNumber from "@/fabritor/components/SliderInputNumber";
 import {
@@ -14,7 +14,7 @@ const { Item: FormItem } = Form;
 const LINE_BORDER_TYPES = BORDER_TYPES.slice(1);
 
 export default function LineSetter() {
-  const { object, editor } = useContext(GloablStateContext);
+  const { object, editor } = useContext(GlobalStateContext);
   const [form] = Form.useForm();
 
   const handleValuesChange = (values) => {

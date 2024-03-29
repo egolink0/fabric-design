@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { Modal } from "antd";
-import { GloablStateContext } from "@/context";
+import { GlobalStateContext } from "@/context";
 import { DRAG_ICON } from "@/assets/icon";
 import {
   ClearOutlined,
@@ -16,7 +16,7 @@ import ToolbarDivider from "@/fabritor/components/ToolbarDivider";
 import "./index.scss";
 
 export default function Toolbar() {
-  const { setActiveObject, editor } = useContext(GloablStateContext);
+  const { setActiveObject, editor } = useContext(GlobalStateContext);
   const [panEnable, setPanEnable] = useState(false);
   const [canUndo, setCanUndo] = useState(false);
   const [canRedo, setCanRedo] = useState(false);

@@ -4,13 +4,13 @@ import { useContext, useEffect, useState } from "react";
 import { fabric } from "fabric";
 import { DRAW_MODE_CURSOR, DRAG_ICON } from "@/assets/icon";
 import BrushList from "./brush-list";
-import { GloablStateContext } from "@/context";
+import { GlobalStateContext } from "@/context";
 import PathSetterForm from "../../setter/PathSetter/PathSetterForm";
 
 export default function PaintPanel() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isDrawingMode, setIsDrawingMode] = useState(true);
-  const { editor } = useContext(GloablStateContext);
+  const { editor } = useContext(GlobalStateContext);
   const [penFormValues, setPenFormValues] = useState({});
 
   const handleBrushChange = (options) => {

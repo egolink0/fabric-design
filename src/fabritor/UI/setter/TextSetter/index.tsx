@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { fabric } from "fabric";
 import { Form, Select } from "antd";
 import { FONT_PRESET_FAMILY_LIST } from "@/utils/constants";
-import { GloablStateContext } from "@/context";
+import { GlobalStateContext } from "@/context";
 import FontStyleSetter from "./FontStyleSetter";
 import AlignSetter from "./AlignSetter";
 import ColorSetter from "../ColorSetter";
@@ -16,7 +16,7 @@ import TextFx from "./TextFx";
 const { Item: FormItem } = Form;
 
 export default function TextSetter() {
-  const { object, editor } = useContext(GloablStateContext);
+  const { object, editor } = useContext(GlobalStateContext);
   const [form] = Form.useForm();
   const [openFx, setOpenFx] = useState(false);
 

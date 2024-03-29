@@ -2,13 +2,13 @@ import { useContext, useEffect } from "react";
 import { fabric } from "fabric";
 import { Form } from "antd";
 import ColorSetter from "../ColorSetter/Solid";
-import { GloablStateContext } from "@/context";
+import { GlobalStateContext } from "@/context";
 
 const { Item: FormItem } = Form;
 
 export default function RoughSetter() {
   const [form] = Form.useForm();
-  const { editor, object } = useContext(GloablStateContext);
+  const { editor, object } = useContext(GlobalStateContext);
 
   const handleValuesChange = (values) => {
     Object.keys(values).forEach((key) => {

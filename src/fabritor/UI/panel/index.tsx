@@ -14,7 +14,7 @@ import ImagePanel from "./ImagePanel";
 import ShapePanel from "./ShapePanel";
 import PaintPanel from "./PaintPanel";
 import DesignPanel from "./DesignPanel";
-import { GloablStateContext } from "@/context";
+import { GlobalStateContext } from "@/context";
 import AppPanel from "./AppPanel";
 import { PANEL_WIDTH } from "@/config";
 import TemplatePanel from "./TemplatePanel";
@@ -60,7 +60,7 @@ const OBJECT_TYPES = [
 ];
 
 export default function Panel() {
-  const { editor } = useContext(GloablStateContext);
+  const { editor } = useContext(GlobalStateContext);
 
   const renderPanel = (value) => {
     if (value === "design") {

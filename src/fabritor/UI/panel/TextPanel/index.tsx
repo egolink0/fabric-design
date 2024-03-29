@@ -2,10 +2,10 @@ import { Button } from "antd";
 import PresetFontPanel from "./PresetFontPanel";
 import { createTextbox } from "@/editor/objects/textbox";
 import { useContext } from "react";
-import { GloablStateContext } from "@/context";
+import { GlobalStateContext } from "@/context";
 
 export default function TextPanel() {
-  const { editor } = useContext(GloablStateContext);
+  const { editor } = useContext(GlobalStateContext);
 
   const handleAddText = async (options) => {
     await createTextbox({ ...options, canvas: editor.canvas });

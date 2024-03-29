@@ -1,10 +1,10 @@
 import { Button } from "antd";
 import { useContext } from "react";
-import { GloablStateContext } from "@/context";
+import { GlobalStateContext } from "@/context";
 import { groupSelection, ungroup } from "@/utils/helper";
 
 export default function GroupSetter() {
-  const { object, editor } = useContext(GloablStateContext);
+  const { object, editor } = useContext(GlobalStateContext);
 
   if (!object || (object.type !== "group" && object.type !== "activeSelection"))
     return null;

@@ -1,12 +1,12 @@
 import { useState, useEffect, useContext } from "react";
 import { Typography } from "antd";
-import { GloablStateContext } from "@/context";
+import { GlobalStateContext } from "@/context";
 
 const { Text } = Typography;
 
 export default function BaseInfo() {
   const [desc, setDesc] = useState("");
-  const { editor } = useContext(GloablStateContext);
+  const { editor } = useContext(GlobalStateContext);
 
   const handleChange = (v) => {
     const _v = v || "design ";

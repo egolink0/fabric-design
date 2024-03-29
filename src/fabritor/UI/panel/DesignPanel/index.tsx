@@ -1,6 +1,6 @@
 import { Flex, List, Empty, Button, Divider } from "antd";
 import { useEffect, useContext, useState } from "react";
-import { GloablStateContext } from "@/context";
+import { GlobalStateContext } from "@/context";
 import { SKETCH_ID } from "@/utils/constants";
 import { GroupOutlined, HeartTwoTone } from "@ant-design/icons";
 import ContextMenu from "@/fabritor/components/ContextMenu";
@@ -13,7 +13,7 @@ export default function Layer() {
     object: activeObject,
     setActiveObject,
     editor,
-  } = useContext(GloablStateContext);
+  } = useContext(GlobalStateContext);
   const [layers, setLayers] = useState([]);
 
   const getCanvasLayers = (objects) => {

@@ -1,6 +1,6 @@
 import { createFImage } from "@/editor/objects/image";
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { GloablStateContext } from "@/context";
+import { GlobalStateContext } from "@/context";
 import { fabric } from "fabric";
 import t1 from "./t1.json";
 import t2 from "./t2.json";
@@ -9,7 +9,7 @@ import { Flex, Image } from "antd";
 import { uuid } from "@/utils";
 
 export default function TemplatePanel() {
-  const { editor } = useContext(GloablStateContext);
+  const { editor } = useContext(GlobalStateContext);
 
   const canvasRef = useRef();
   const workspaceEl = useRef();

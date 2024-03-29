@@ -3,14 +3,14 @@ import { fabric } from "fabric";
 import { Form } from "antd";
 import ColorSetter from "../ColorSetter";
 import SizeSetter from "../SizeSetter";
-import { GloablStateContext } from "@/context";
+import { GlobalStateContext } from "@/context";
 import { transformColors2Fill, transformFill2Colors } from "@/utils";
 
 const { Item: FormItem } = Form;
 
 export default function SketchSetter() {
   const [form] = Form.useForm();
-  const { editor } = useContext(GloablStateContext);
+  const { editor } = useContext(GlobalStateContext);
 
   const handleFill = (_fill) => {
     const { sketch, canvas } = editor;

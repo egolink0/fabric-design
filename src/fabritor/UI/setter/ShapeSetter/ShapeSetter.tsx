@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
 import { fabric } from "fabric";
 import { Form } from "antd";
-import { GloablStateContext } from "@/context";
+import { GlobalStateContext } from "@/context";
 import ColorSetter from "../ColorSetter";
 import BorderSetter, {
   getObjectBorderType,
@@ -12,7 +12,7 @@ import { transformColors2Fill, transformFill2Colors } from "@/utils";
 const { Item: FormItem } = Form;
 
 export default function ShapeSetter() {
-  const { object, editor } = useContext(GloablStateContext);
+  const { object, editor } = useContext(GlobalStateContext);
   const [form] = Form.useForm();
 
   const handleBorder = (border) => {
