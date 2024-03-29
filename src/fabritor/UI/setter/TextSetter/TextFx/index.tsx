@@ -122,12 +122,12 @@ export default function TextFx() {
       style={{ marginTop: 24 }}
     >
       <FormItem
-        label={<span style={{ fontSize: 15, fontWeight: "bold" }}>描边</span>}
+        label={<span style={{ fontSize: 15, fontWeight: "bold" }}>Stroke</span>}
       />
-      <FormItem label="颜色" name="stroke">
+      <FormItem label="Stroke Color" name="stroke">
         <ColorSetter />
       </FormItem>
-      <FormItem label="粗细" name="strokeWidth">
+      <FormItem label="Stroke Width" name="strokeWidth">
         <Slider min={0} max={20} />
       </FormItem>
 

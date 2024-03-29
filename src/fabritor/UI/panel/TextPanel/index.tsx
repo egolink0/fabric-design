@@ -21,7 +21,7 @@ export default function TextPanel() {
         }}
         size="large"
       >
-        添加文本框
+        Add text
       </Button>
       <PresetFontPanel addTextBox={handleAddText} />
     </div>

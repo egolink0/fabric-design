@@ -4,11 +4,11 @@ import type { MenuProps } from "antd";
 const items: MenuProps["items"] = [
   {
     key: "flipX",
-    label: "水平翻转",
+    label: "Horizontal flip",
   },
   {
     key: "flipY",
-    label: "垂直翻转",
+    label: "Vertical flip",
   },
 ];
 

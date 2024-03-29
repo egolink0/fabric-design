@@ -37,7 +37,7 @@ export default function LineSetter() {
             getStrokeDashArray({
               type: values[key],
               strokeWidth: object.strokeWidth,
-            }),
+            })
           );
           break;
         default:
@@ -62,10 +62,10 @@ export default function LineSetter() {
 
   return (
     <Form form={form} onValuesChange={handleValuesChange} colon={false}>
-      <FormItem name="stroke" label="颜色">
+      <FormItem name="stroke" label="Color">
         <ColorSetter />
       </FormItem>
-      <FormItem name="type" label="样式" labelCol={{ span: 24 }}>
+      <FormItem name="type" label="Style" labelCol={{ span: 24 }}>
         <Radio.Group>
           {LINE_BORDER_TYPES.map((item) => (
             <Radio.Button key={item.key} value={item.key}>
@@ -81,10 +81,10 @@ export default function LineSetter() {
           ))}
         </Radio.Group>
       </FormItem>
-      <FormItem name="strokeWidth" label="粗细">
+      <FormItem name="strokeWidth" label="Stroke Width">
         <SliderInputNumber min={1} max={50} />
       </FormItem>
-      <FormItem name="round" label="圆角" valuePropName="checked">
+      <FormItem name="round" label="Round corner" valuePropName="checked">
         <Switch />
       </FormItem>
     </Form>

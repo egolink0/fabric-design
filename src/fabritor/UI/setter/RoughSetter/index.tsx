@@ -45,11 +45,11 @@ export default function RoughSetter() {
 
   return (
     <Form colon={false} form={form} onValuesChange={handleValuesChange}>
-      <FormItem label="描边" name="stroke">
+      <FormItem label="Stroke" name="stroke">
         <ColorSetter />
       </FormItem>
       {object?.type === "group" ? (
-        <FormItem label="填充" name="fill">
+        <FormItem label="Fill" name="fill">
           <ColorSetter />
         </FormItem>
       ) : null}

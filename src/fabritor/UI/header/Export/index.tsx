@@ -11,26 +11,26 @@ import { SETTER_WIDTH } from "@/config";
 const items: MenuProps["items"] = [
   {
     key: "jpg",
-    label: "导出为 JPG",
+    label: "Export to JPG",
   },
   {
     key: "png",
-    label: "导出为 PNG",
+    label: "Export to PNG",
   },
   {
     key: "svg",
-    label: "导出为 SVG",
+    label: "Export to SVG",
   },
   {
     key: "json",
-    label: "导出为 模板",
+    label: "Export to Template",
   },
   {
     type: "divider",
   },
   {
     key: "clipboard",
-    label: "复制到剪贴板",
+    label: "Copy to clipboard",
   },
 ];
 
@@ -67,9 +67,9 @@ export default function Export() {
           "image/png": blob,
         }),
       ]);
-      message.success("复制成功");
+      message.success("Copy successful.");
     } catch (e) {
-      message.error("复制失败，请选择导出到本地");
+      message.error("Copy failed. Please choose to export to local.");
     }
   };
 
@@ -117,14 +117,14 @@ export default function Export() {
         paddingRight: 16,
       }}
     >
-      <Button onClick={selectJsonFile}>加载模板</Button>
+      <Button onClick={selectJsonFile}>Load Template</Button>
       <Dropdown
         menu={{ items, onClick: handleClick }}
         arrow={{ pointAtCenter: true }}
         placement="bottom"
       >
         <Button type="primary" icon={<ExportOutlined />}>
-          导出
+          Export
         </Button>
       </Dropdown>
       <LocalFileSelector

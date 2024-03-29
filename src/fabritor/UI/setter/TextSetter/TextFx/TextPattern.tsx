@@ -26,10 +26,10 @@ export default function TextPattern(props) {
     <Form form={form} onValuesChange={handleChange} colon={false}>
       <FormItem
         label={
-          <span style={{ fontSize: 15, fontWeight: "bold" }}>图片填充</span>
+          <span style={{ fontSize: 15, fontWeight: "bold" }}>Image fill</span>
         }
       />
-      <FormItem label="启用" name="enable" valuePropName="checked">
+      <FormItem label="Enable" name="enable" valuePropName="checked">
         <Switch />
       </FormItem>
       <FormItem name="url">

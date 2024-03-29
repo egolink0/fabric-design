@@ -74,12 +74,12 @@ export default function ShapeSetter() {
 
   return (
     <Form form={form} onValuesChange={handleValuesChange} colon={false}>
-      <FormItem name="fill" label="颜色">
+      <FormItem name="fill" label="Fill Color">
         <ColorSetter defaultColor="#000000" />
       </FormItem>
       <FormItem
         name="border"
-        label={<span style={{ fontWeight: "bold", fontSize: 15 }}>边框</span>}
+        label={<span style={{ fontWeight: "bold", fontSize: 15 }}>Border</span>}
         labelCol={{ span: 24 }}
       >
         <BorderSetter />

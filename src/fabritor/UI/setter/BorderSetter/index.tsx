@@ -76,7 +76,7 @@ export default function BorderSetter(props) {
 
   return (
     <Form form={form} onValuesChange={handleChange} colon={false}>
-      <FormItem name="type" label="样式" labelCol={{ span: 24 }}>
+      <FormItem name="type" label="Style" labelCol={{ span: 24 }}>
         <Radio.Group>
           {BORDER_TYPES.map((item) => (
             <Radio.Button key={item.key} value={item.key}>
@@ -92,13 +92,13 @@ export default function BorderSetter(props) {
           ))}
         </Radio.Group>
       </FormItem>
-      <FormItem name="stroke" label="颜色">
+      <FormItem name="stroke" label="Stroke">
         <ColorSetter />
       </FormItem>
-      <FormItem name="strokeWidth" label="粗细">
+      <FormItem name="strokeWidth" label="Stroke Width">
         <SliderInputNumber min={1} max={100} />
       </FormItem>
-      <FormItem name="borderRadius" label="圆角">
+      <FormItem name="borderRadius" label="Border Radius">
         <SliderInputNumber min={0} max={200} />
       </FormItem>
     </Form>

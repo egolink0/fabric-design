@@ -95,7 +95,7 @@ export default function Layer() {
 
   return (
     <div className="fabritor-panel-wrapper">
-      {(layers.length > 0) ? (
+      {layers.length > 0 ? (
         <List
           dataSource={layers}
           renderItem={(item: any) => (
@@ -133,17 +133,7 @@ export default function Layer() {
           )}
         />
       ) : (
-        <Empty
-          image={null}
-          description={
-            <div>
-              <HeartTwoTone twoToneColor="#eb2f96" style={{ fontSize: 40 }} />
-              <p style={{ color: "#aaa", fontSize: 16 }}>开始挥洒你的创意 ~</p>
-              <Divider />
-              <Button onClick={loadDemo}>或者从一个简单的 DEMO 开始</Button>
-            </div>
-          }
-        />
+        <Empty image={null} />
       )}
     </div>
   );

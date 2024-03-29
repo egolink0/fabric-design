@@ -36,7 +36,7 @@
       "rx": 0,
       "ry": 0,
       "id": "fabritor-sketch",
-      "fabritor_desc": "我的画板 by fabritor",
+      "fabritor_desc": "design ",
       "selectable": false,
       "hasControls": false
     },
@@ -312,7 +312,7 @@
       "fontFamily": "SourceHanSerif",
       "fontWeight": "normal",
       "fontSize": 80,
-      "text": "快速构建属于自己的\n图片编辑器",
+      "text": "design",
       "underline": false,
       "overline": false,
       "linethrough": false,

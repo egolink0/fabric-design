@@ -23,37 +23,37 @@ import { Divider } from "antd";
 
 const ALIGH_TYPES = [
   {
-    label: "居中",
+    label: "Center",
     icon: PicCenterOutlined,
     key: "center",
   },
   {
-    label: "左对齐",
+    label: "Align Left",
     icon: AlignLeftOutlined,
     key: "left",
   },
   {
-    label: "水平居中",
+    label: "Align Middle",
     icon: AlignCenterOutlined,
     key: "centerH",
   },
   {
-    label: "右对齐",
+    label: "Align Right",
     icon: AlignRightOutlined,
     key: "right",
   },
   {
-    label: "顶部对齐",
+    label: "Align Top",
     icon: VerticalAlignTopOutlined,
     key: "top",
   },
   {
-    label: "垂直居中",
+    label: "Align Center",
     icon: VerticalAlignMiddleOutlined,
     key: "centerV",
   },
   {
-    label: "底部对齐",
+    label: "Align Bottom",
     icon: VerticalAlignBottomOutlined,
     key: "bottom",
   },
@@ -136,7 +136,7 @@ export default function CommonSetter() {
         <ToolbarItem
           tooltipProps={{ placement: "top" }}
           onClick={handleLock}
-          title={lock ? "解锁" : "锁定"}
+          title={lock ? "Unlock" : "Lock"}
         >
           {lock ? (
             <UnlockOutlined style={{ fontSize: 20 }} />
@@ -144,12 +144,12 @@ export default function CommonSetter() {
             <LockOutlined style={{ fontSize: 20 }} />
           )}
         </ToolbarItem>
-        <ToolbarItem tooltipProps={{ placement: "top" }} title="透明度">
+        <ToolbarItem tooltipProps={{ placement: "top" }} title="Opacity">
           <OpacitySetter value={opacity} onChange={handleOpacity} />
         </ToolbarItem>
         <ToolbarItem
           tooltipProps={{ placement: "top" }}
-          title="创建副本"
+          title="Create a copy"
           onClick={async () => {
             await copyObject(editor.canvas, object);
             await pasteObject(editor.canvas);
@@ -159,7 +159,7 @@ export default function CommonSetter() {
         </ToolbarItem>
         <ToolbarItem
           tooltipProps={{ placement: "top" }}
-          title="删除"
+          title="Delete"
           onClick={() => {
             removeObject(null, editor.canvas);
           }}
@@ -167,13 +167,13 @@ export default function CommonSetter() {
           <DeleteOutlined style={{ fontSize: 20 }} />
         </ToolbarItem>
         {object.type === "f-image" ? (
-          <ToolbarItem tooltipProps={{ placement: "top" }} title="翻转">
+          <ToolbarItem tooltipProps={{ placement: "top" }} title="Flip">
             <FlipSetter onChange={handleFlip} />
           </ToolbarItem>
         ) : null}
       </CenterV>
       <Divider style={{ margin: "16px 0" }} />
-      <span style={{ fontWeight: "bold" }}>画布对齐</span>
+      <span style={{ fontWeight: "bold" }}>Align the canvas</span>
       <CenterV
         height={30}
         gap={8}

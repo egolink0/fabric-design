@@ -25,13 +25,13 @@ export default function TextPath(props) {
     <Form form={form} onValuesChange={handleChange} colon={false}>
       <FormItem
         label={
-          <span style={{ fontSize: 15, fontWeight: "bold" }}>波浪型文字</span>
+          <span style={{ fontSize: 15, fontWeight: "bold" }}>Wave text</span>
         }
       />
-      <FormItem label="启用" name="enable" valuePropName="checked">
+      <FormItem label="Enable" name="enable" valuePropName="checked">
         <Switch />
       </FormItem>
-      <FormItem label="偏移" name="offset">
+      <FormItem label="Offset" name="offset">
         <Slider min={-100} max={100} />
       </FormItem>
     </Form>

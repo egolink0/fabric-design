@@ -21,7 +21,7 @@ export default function ImageSetter() {
   const IMAGE_ADVANCE_CONFIG = [
     {
       icon: <FunctionOutlined style={{ fontSize: 22 }} />,
-      label: "滤镜",
+      label: "Filters",
       key: "fx",
       onClick: () => {
         setOpenFx(true);
@@ -123,7 +123,7 @@ export default function ImageSetter() {
           </>
         )}
       />
-      <MoreConfigWrapper open={openFx} setOpen={setOpenFx} title="滤镜">
+      <MoreConfigWrapper open={openFx} setOpen={setOpenFx} title="Filters">
         <ImageFx />
       </MoreConfigWrapper>
     </>

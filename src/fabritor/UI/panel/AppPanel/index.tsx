@@ -6,7 +6,7 @@ import EmojiPanel from "./Emoji";
 
 const APP_LIST = [
   {
-    title: "二维码",
+    title: "Qr code",
     key: "qrcode",
     icon: <QrcodeOutlined style={{ fontSize: 30 }} />,
   },

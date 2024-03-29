@@ -17,9 +17,9 @@ export default function BorderSetter(props) {
           setShowMore(true);
         }}
       >
-        边框
+        border
       </Button>
-      <MoreConfigWrapper open={showMore} setOpen={setShowMore} title="边框">
+      <MoreConfigWrapper open={showMore} setOpen={setShowMore} title="border">
         <div style={{ marginTop: 24 }}>
           <CommonBorderSetter value={value} onChange={onChange} />
         </div>

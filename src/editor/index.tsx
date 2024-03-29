@@ -107,7 +107,7 @@ export default class Editor {
       hasControls: false,
       hoverCursor: "default",
       id: SKETCH_ID,
-      fabritor_desc: "我的画板 by fabritor",
+      fabritor_desc: "design ",
     });
     this.canvas.add(sketch);
     this.canvas.requestRenderAll();
@@ -411,12 +411,14 @@ export default class Editor {
         json = JSON.parse(json);
       } catch (e) {
         console.log(e);
-        errorToast && message.error("加载本地模板失败，请重试");
+        errorToast && message.error("Load local template failed.");
         return false;
       }
     }
     if (json[SCHEMA_VERSION_KEY] !== SCHEMA_VERSION) {
-      console.warn("此模板已经无法与当前版本兼容，请更换模板");
+      console.warn(
+        "This template is no longer compatible with the current version. Please replace the template."
+      );
       return false;
     }
 

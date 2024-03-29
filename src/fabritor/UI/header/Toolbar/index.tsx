@@ -23,15 +23,16 @@ export default function Toolbar() {
 
   const clearCanvas = () => {
     Modal.confirm({
-      title: "确认清空画布，同时清空历史操作记录？",
+      title:
+        "Confirm clearing the canvas and clearing the history of operations?",
       icon: <ExclamationCircleFilled />,
       async onOk() {
         await editor.clearCanvas();
         setActiveObject(editor.sketch);
         editor.fireCustomModifiedEvent();
       },
-      okText: "确认",
-      cancelText: "取消",
+      okText: "Confirm",
+      cancelText: "Cancel",
     });
   };
 
@@ -54,7 +55,7 @@ export default function Toolbar() {
     >
       <ToolbarItem
         disabled={!canUndo}
-        title="撤销"
+        title="Undo"
         onClick={() => {
           editor.fhistory.undo();
         }}
@@ -63,7 +64,7 @@ export default function Toolbar() {
       </ToolbarItem>
       <ToolbarItem
         disabled={!canRedo}
-        title="重做"
+        title="Redo"
         onClick={() => {
           editor.fhistory.redo();
         }}
@@ -73,7 +74,7 @@ export default function Toolbar() {
       <ToolbarDivider />
       <ToolbarItem
         onClick={enablePan}
-        title={panEnable ? "选择元素" : "拖拽画布"}
+        title={panEnable ? "Select element" : "Drag the canvas"}
       >
         {panEnable ? (
           <DragOutlined
@@ -86,7 +87,7 @@ export default function Toolbar() {
           />
         )}
       </ToolbarItem>
-      <ToolbarItem onClick={clearCanvas} title="清空画布">
+      <ToolbarItem onClick={clearCanvas} title="Clear the canvas">
         <ClearOutlined style={{ fontSize: 20 }} />
       </ToolbarItem>
     </CenterV>

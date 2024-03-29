@@ -23,7 +23,7 @@ export default function TextSetter() {
   const TEXT_ADVANCE_CONFIG = [
     {
       icon: <FunctionOutlined style={{ fontSize: 22 }} />,
-      label: "特效",
+      label: "Special effects",
       key: "fx",
       onClick: () => {
         setOpenFx(true);
@@ -124,25 +124,25 @@ export default function TextSetter() {
   return (
     <>
       <Form form={form} onValuesChange={handleValuesChange} colon={false}>
-        <FormItem name="fontFamily" label="字体">
+        <FormItem name="fontFamily" label="Font">
           <Select options={FONT_PRESET_FAMILY_LIST} />
         </FormItem>
-        <FormItem name="fontSize" label="字号">
+        <FormItem name="fontSize" label="Font Size">
           <SliderInputNumber max={400} />
         </FormItem>
-        <FormItem name="fill" label="颜色">
+        <FormItem name="fill" label="Font Color">
           <ColorSetter type="fontColor" defaultColor="#000000" />
         </FormItem>
-        <FormItem name="textAlign" label="对齐">
+        <FormItem name="textAlign" label="Align">
           <AlignSetter />
         </FormItem>
-        <FormItem name="fontStyles" label="样式">
+        <FormItem name="fontStyles" label="Style">
           <FontStyleSetter />
         </FormItem>
-        <FormItem name="charSpacing" label="字间距">
+        <FormItem name="charSpacing" label="Letter spacing">
           <SliderInputNumber min={-200} max={800} />
         </FormItem>
-        <FormItem name="lineHeight" label="行间距">
+        <FormItem name="lineHeight" label="Line spacing">
           <SliderInputNumber min={0.5} max={2.5} step={0.01} />
         </FormItem>
       </Form>
@@ -164,7 +164,7 @@ export default function TextSetter() {
           </>
         )}
       />
-      <MoreConfigWrapper open={openFx} setOpen={setOpenFx} title="文字特效">
+      <MoreConfigWrapper open={openFx} setOpen={setOpenFx} title="Text effects">
         <TextFx />
       </MoreConfigWrapper>
     </>

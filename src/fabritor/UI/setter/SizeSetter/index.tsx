@@ -2,7 +2,7 @@ import { InputNumber, Flex } from "antd";
 import { useEffect, useState } from "react";
 
 const SizeInput = (props) => {
-  const { prefixText = "宽", ...rest } = props;
+  const { prefixText = "Width", ...rest } = props;
   return (
     <InputNumber
       prefix={
@@ -44,7 +44,7 @@ export default function SizeSetter(props) {
         }}
       />
       <SizeInput
-        prefixText="高"
+        prefixText="Height"
         value={innerValue?.[1]}
         onChange={(v) => {
           handleChange(v, 1);

@@ -7,7 +7,7 @@ const PRESET_FONT_LIST = [
       <div
         style={{ fontSize: 30, fontFamily: "SmileySans", fontWeight: "bold" }}
       >
-        添加标题
+        Add Title
       </div>
     ),
     key: "title",
@@ -15,14 +15,14 @@ const PRESET_FONT_LIST = [
       fontFamily: "SmileySans",
       fontWeight: "bold",
       fontSize: 120,
-      text: "添加标题",
+      text: "Add Title",
       top: 100,
     },
   },
   {
     label: (
       <div style={{ fontSize: 24, fontFamily: "AlibabaPuHuiTi" }}>
-        添加副标题
+        Add SubTitle
       </div>
     ),
     key: "sub-title",
@@ -30,21 +30,21 @@ const PRESET_FONT_LIST = [
       fontFamily: "AlibabaPuHuiTi",
       fontWeight: "bold",
       fontSize: 100,
-      text: "添加副标题",
+      text: "Add SubTitle",
       top: 400,
     },
   },
   {
     label: (
       <div style={{ fontSize: 16, fontFamily: "SourceHanSerif" }}>
-        添加一段正文
+        Add a paragraph
       </div>
     ),
     key: "content",
     config: {
       fontFamily: "SourceHanSerif",
       fontSize: 80,
-      text: "添加一段正文",
+      text: "Add a paragraph",
     },
   },
   {
@@ -52,19 +52,17 @@ const PRESET_FONT_LIST = [
       <div
         style={{
           fontSize: 26,
-          fontFamily: "霞鹜文楷",
           color: "#ffffff",
           WebkitTextStroke: "1px rgb(255, 87, 87)",
         }}
       >
-        文字边框
+        Text border
       </div>
     ),
     key: "content",
     config: {
-      fontFamily: "霞鹜文楷",
       fontSize: 100,
-      text: "文字边框",
+      text: "Text border",
       fill: "#ffffff",
       stroke: "#ff5757",
       strokeWidth: 12,
@@ -81,7 +79,7 @@ export default function PresetFontPanel(props) {
 
   return (
     <Flex vertical gap={8} style={{ marginTop: 16 }}>
-      <Title>默认文字样式</Title>
+      <Title>Default text style</Title>
       {PRESET_FONT_LIST.map((item) => (
         <Card
           key={item.key}

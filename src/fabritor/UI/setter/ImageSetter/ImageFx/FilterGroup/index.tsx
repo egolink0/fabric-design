@@ -1,56 +1,74 @@
 import { Slider } from "antd";
 import "./index.scss";
 
+import Sepia from "@/assets/filters/Sepia.png";
+import Kodachrome from "@/assets/filters/Kodachrome.png";
+import Vintage from "@/assets/filters/Vintage.png";
+import Polaroid from "@/assets/filters/Polaroid.png";
+import Blur from "@/assets/filters/Blur.png";
+import Emboss from "@/assets/filters/Emboss.png";
+import Pixelate from "@/assets/filters/Pixelate.png";
+import Grayscale from "@/assets/filters/Grayscale.png";
+import HueRotation from "@/assets/filters/HueRotation.png";
+
 const COLOR_FILTER_LIST = [
   {
-    label: "无",
+    label: "none",
     value: "none",
     src: "https://cdn.pixabay.com/photo/2017/02/15/13/18/girl-2068638_1280.jpg",
   },
   {
-    label: "复古",
+    label: "Sepia",
     value: "Sepia",
-    src: "https://raw.githubusercontent.com/sleepy-zone/fabritor-assets/main/images/复古.png",
+    src: Sepia,
   },
+  //胶片
   {
-    label: "胶片",
+    label: "Kodachrome",
     value: "Kodachrome",
-    src: "https://raw.githubusercontent.com/sleepy-zone/fabritor-assets/main/images/胶片.png",
+    src: Kodachrome,
   },
+  //老照片
   {
-    label: "老照片",
+    label: "Vintage",
     value: "Vintage",
-    src: "https://raw.githubusercontent.com/sleepy-zone/fabritor-assets/main/images/老照片.png",
+    src: Vintage,
   },
+  //宝丽来
   {
-    label: "宝丽来",
+    label: "Polaroid",
     value: "Polaroid",
-    src: "https://raw.githubusercontent.com/sleepy-zone/fabritor-assets/main/images/宝丽来.png",
+    src: Polaroid,
   },
+  // 模糊
   {
-    label: "模糊",
+    label: "Blur",
     value: "Blur",
-    src: "https://raw.githubusercontent.com/sleepy-zone/fabritor-assets/main/images/模糊.png",
+    src: Blur,
   },
+  // 浮雕
   {
-    label: "浮雕",
+    label: "Emboss",
     value: "Emboss",
-    src: "https://raw.githubusercontent.com/sleepy-zone/fabritor-assets/main/images/浮雕.png",
+    src: Emboss,
   },
+  // 像素
   {
-    label: "像素",
+    label: "Pixelate",
     value: "Pixelate",
-    src: "https://raw.githubusercontent.com/sleepy-zone/fabritor-assets/main/images/像素.png",
+    src: Pixelate,
   },
+  // 黑白
   {
-    label: "黑白",
+    label: "Grayscale",
     value: "Grayscale",
-    src: "https://raw.githubusercontent.com/sleepy-zone/fabritor-assets/main/images/黑白.png",
+    src: Grayscale,
   },
+  // 调色
   {
-    label: "调色",
+    label: "HueRotation",
     value: "HueRotation",
-    src: "https://raw.githubusercontent.com/sleepy-zone/fabritor-assets/main/images/调色.png",
+    src: HueRotation,
   },
 ];
 

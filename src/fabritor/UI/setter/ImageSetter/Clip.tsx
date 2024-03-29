@@ -78,7 +78,7 @@ export default function ClipSetter(props) {
   return (
     <div>
       <Button block icon={<ExpandOutlined />} onClick={startCrop}>
-        裁剪
+        Clip
       </Button>
 
       {showCrop ? (

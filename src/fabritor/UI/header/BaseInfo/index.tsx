@@ -9,7 +9,7 @@ export default function BaseInfo() {
   const { editor } = useContext(GloablStateContext);
 
   const handleChange = (v) => {
-    const _v = v || "我的画板 by fabritor";
+    const _v = v || "design ";
     setDesc(_v);
     if (!editor) return;
     const { sketch } = editor;

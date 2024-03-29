@@ -22,14 +22,14 @@ export default function RemoteImageSelector(props) {
             }}
             style={{ width: 260 }}
           />
-          <Button onClick={handleClick}>确认</Button>
+          <Button onClick={handleClick}>Confirm</Button>
         </Space.Compact>
       }
-      title="请输入地址："
+      title="Input the url:"
       trigger="click"
     >
       <Button type="primary" size="large" {...rest}>
-        添加远程图片
+        Add remote image
       </Button>
     </Popover>
   );

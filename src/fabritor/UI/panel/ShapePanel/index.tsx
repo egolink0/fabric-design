@@ -108,7 +108,7 @@ export default function ShapePanel() {
 
   return (
     <div className="fabritor-panel-wrapper">
-      <Title>线条</Title>
+      <Title>Line</Title>
       <Flex gap={10} wrap="wrap" justify="space-around">
         {LineTypeList.map((item) => (
           <div
@@ -126,7 +126,7 @@ export default function ShapePanel() {
           </div>
         ))}
       </Flex>
-      <Title>形状</Title>
+      <Title>Shape</Title>
       <Flex gap={10} wrap="wrap" justify="space-around">
         {ShapeTypeList.map((item) => (
           <div
@@ -140,37 +140,6 @@ export default function ShapePanel() {
               src={`data:image/svg+xml;charset=utf-8,${encodeURIComponent(item.elem)}`}
               style={{ width: 64, height: 64 }}
             />
-          </div>
-        ))}
-      </Flex>
-      <Title>
-        <div style={{ position: "relative" }}>
-          <span>手绘风格</span>
-          <Tag
-            color="#f50"
-            style={{
-              position: "absolute",
-              right: -48,
-              top: -5,
-              padding: "0 4px",
-            }}
-          >
-            beta
-          </Tag>
-        </div>
-      </Title>
-      <Flex gap={10} wrap="wrap" justify="space-around">
-        {RoughTypeList.map((item) => (
-          <div
-            key={item.key}
-            onClick={() => {
-              addRough(item);
-            }}
-            className="fabritor-panel-shape-item"
-          >
-            <Center style={{ width: 64, height: 64 }}>
-              <img src={item.elem} style={{ width: 64 }} />
-            </Center>
           </div>
         ))}
       </Flex>

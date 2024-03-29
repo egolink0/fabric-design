@@ -23,30 +23,34 @@ export default function PathSetterForm(props) {
     >
       {showPenTip ? (
         <FormItem
-          label={<span style={{ fontSize: 15, fontWeight: "bold" }}>画笔</span>}
+          label={
+            <span style={{ fontSize: 15, fontWeight: "bold" }}>
+              Paint brush
+            </span>
+          }
         />
       ) : null}
-      <FormItem label={showFillConfig ? "描边" : "颜色"} name="color">
+      <FormItem label={showFillConfig ? "Stroke" : "Color"} name="color">
         <SolidColorSetter />
       </FormItem>
-      <FormItem label="线宽" name="width">
+      <FormItem label="Stroke width" name="width">
         <SliderInputNumber min={1} max={100} />
       </FormItem>
       {showFillConfig ? (
-        <FormItem label="填充" name="fill">
+        <FormItem label="Fill" name="fill">
           <ColorSetter />
         </FormItem>
       ) : null}
       <FormItem
-        label={<span style={{ fontSize: 15, fontWeight: "bold" }}>阴影</span>}
+        label={<span style={{ fontSize: 15, fontWeight: "bold" }}>Shadow</span>}
       />
-      <FormItem label="颜色" name={["shadow", "color"]}>
+      <FormItem label="Shadow Color" name={["shadow", "color"]}>
         <ColorSetter />
       </FormItem>
-      <FormItem label="宽度" name={["shadow", "width"]}>
+      <FormItem label="Shadow Width" name={["shadow", "width"]}>
         <SliderInputNumber min={0} max={50} />
       </FormItem>
-      <FormItem label="偏移" name={["shadow", "offset"]}>
+      <FormItem label="Shadow Offset" name={["shadow", "offset"]}>
         <SliderInputNumber min={0} max={20} />
       </FormItem>
     </Form>

@@ -78,43 +78,43 @@ export default function Setter() {
 
   const getSetterTitle = () => {
     if (!isReady) return null;
-    if (!object || object.id === SKETCH_ID) return "画布";
+    if (!object || object.id === SKETCH_ID) return "Canvas";
     switch (objectType) {
       case "textbox":
       case "f-text":
-        return "文字";
+        return "Text";
       case "rect":
       case "circle":
       case "triangle":
       case "polygon":
       case "ellipse":
-        return "形状";
+        return "Shape";
       case "line":
       case "f-line":
       case "f-arrow":
       case "f-tri-arrow":
-        return "线条";
+        return "Line";
       case "f-image":
-        return "图片";
+        return "Image";
       case "image":
-        return "配置";
+        return "Config";
       case "path":
         if (object?.sub_type) {
           if (object?.sub_type === "rough") {
-            return "手绘风格";
+            return "Hand-drawn style";
           }
-          return "形状";
+          return "Shape";
         }
-        return "画笔";
+        return "Brush";
       case "group":
         if (object?.sub_type === "rough") {
-          return "手绘风格";
+          return "Hand-drawn style";
         }
-        return "组合";
+        return "group";
       case "activeSelection":
-        return "组合";
+        return "group";
       default:
-        return "画布";
+        return "canvas";
     }
   };
 

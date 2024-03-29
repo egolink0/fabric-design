@@ -34,7 +34,7 @@ export default function PaintPanel() {
         color: options.shadow.color || originalShadowObject.color,
       };
       editor.canvas.freeDrawingBrush.shadow = new fabric.Shadow(
-        newShadowObject,
+        newShadowObject
       );
     }
   };
@@ -120,13 +120,13 @@ export default function PaintPanel() {
         value={penFormValues}
         showPenTip
       />
-      <Title>操作</Title>
+      <Title>Operation</Title>
       <Flex wrap="wrap" justify="space-around">
         <Button
           style={{ width: 64 }}
           onClick={stopFreeDrawMode}
           type={isDrawingMode ? "default" : "primary"}
-          title="停止绘图"
+          title="Stop draw"
         >
           <img
             src={`data:image/svg+xml;charset=utf-8,${encodeURIComponent(DRAG_ICON)}`}

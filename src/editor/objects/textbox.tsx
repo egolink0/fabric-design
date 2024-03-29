@@ -32,7 +32,7 @@ export const drawTextPath = (textbox, offset) => {
       visible: false,
       stroke: "#000000",
       fill: "#00000000",
-    },
+    }
   );
   textbox.set({
     path,
@@ -54,7 +54,7 @@ export const createTextbox = async (options) => {
 
   const tmpPathInfo = { hasPath: false, offset: 100 };
 
-  const textBox = new fabric.FText(text || "这是一段文本", {
+  const textBox = new fabric.FText(text || "This is a text.", {
     ...TEXTBOX_DEFAULT_CONFIG,
     ...rest,
     fontFamily,

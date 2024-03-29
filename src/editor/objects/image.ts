@@ -10,7 +10,7 @@ export const loadImageDom = async (url) => {
         if (img) {
           return resolve(img);
         }
-        message.error("加载图片失败");
+        message.error("Failed to load image.");
         return reject();
       },
       null,
@@ -26,7 +26,7 @@ export const loadImage = async (imageSource) => {
         imageSource,
         (img) => {
           if (!img) {
-            message.error("加载图片失败");
+            message.error("Failed to load image.");
             reject();
             return;
           }

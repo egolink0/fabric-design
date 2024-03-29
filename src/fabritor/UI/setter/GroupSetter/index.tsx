@@ -19,7 +19,7 @@ export default function GroupSetter() {
             ungroup(editor.canvas, object);
           }}
         >
-          取消建组
+          ungroup
         </Button>
       ) : (
         <Button
@@ -29,7 +29,7 @@ export default function GroupSetter() {
             groupSelection(editor.canvas, object);
           }}
         >
-          建组
+          group
         </Button>
       )}
     </div>

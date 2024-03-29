@@ -49,10 +49,10 @@ export default function SketchSetter() {
       form={form}
       onValuesChange={handleValuesChange}
     >
-      <FormItem label="画布尺寸" name="size">
+      <FormItem label="Canvas size" name="size">
         <SizeSetter />
       </FormItem>
-      <FormItem label="画布背景色" name="fill">
+      <FormItem label="Canvas background color" name="fill">
         <ColorSetter type="sketch" />
       </FormItem>
     </Form>

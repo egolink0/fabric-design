@@ -14,7 +14,7 @@ export default function ReplaceSetter(props) {
       trigger="click"
     >
       <Button type="primary" block icon={<FileImageOutlined />}>
-        替换图片
+        Replace the image
       </Button>
     </Popover>
   );

@@ -42,7 +42,7 @@ const ContextMenu = (props, ref) => {
     if (!object || object.id === SKETCH_ID) {
       return [
         {
-          label: <ContextMenuItem label="粘贴" keyboard="V" cmdKey />,
+          label: <ContextMenuItem label="Paste" keyboard="V" cmdKey />,
           key: "paste",
         },
       ];
@@ -50,19 +50,19 @@ const ContextMenu = (props, ref) => {
 
     const menuItems: MenuProps["items"] = [
       {
-        label: <ContextMenuItem label="复制" keyboard="C" cmdKey />,
+        label: <ContextMenuItem label="Copy" keyboard="C" cmdKey />,
         key: "copy",
       },
       {
-        label: <ContextMenuItem label="粘贴" keyboard="V" cmdKey />,
+        label: <ContextMenuItem label="Paste" keyboard="V" cmdKey />,
         key: "paste",
       },
       {
-        label: "创建副本",
+        label: "create a copy",
         key: "copy&paste",
       },
       {
-        label: <ContextMenuItem label="删除" keyboard="DEL" />,
+        label: <ContextMenuItem label="Delete" keyboard="DEL" />,
         key: "del",
       },
     ];
@@ -72,7 +72,7 @@ const ContextMenu = (props, ref) => {
         type: "divider",
       });
       menuItems.push({
-        label: "建组",
+        label: "Be Group",
         key: "group",
       });
     }
@@ -82,7 +82,7 @@ const ContextMenu = (props, ref) => {
         type: "divider",
       });
       menuItems.push({
-        label: "取消建组",
+        label: "Ungroup",
         key: "ungroup",
       });
     }
@@ -92,23 +92,23 @@ const ContextMenu = (props, ref) => {
         type: "divider",
       });
       menuItems.push({
-        label: "图层",
+        label: "Layer",
         key: "layer",
         children: [
           {
-            label: "上移",
+            label: "Up",
             key: "layer-up",
           },
           {
-            label: "置顶",
+            label: "To Top",
             key: "layer-top",
           },
           {
-            label: "下移",
+            label: "Down",
             key: "layer-down",
           },
           {
-            label: "置底",
+            label: "To Bottom",
             key: "layer-bottom",
           },
         ],

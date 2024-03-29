@@ -33,41 +33,30 @@ const iconStyle = { fontSize: 18, marginRight: 0 };
 
 const OBJECT_TYPES = [
   {
-    label: "模板",
+    label: "Template",
     value: "template",
     icon: <AppstoreOutlined style={iconStyle} />,
   },
   {
-    label: "图层",
+    label: "Layer",
     value: "design",
     icon: <AlertOutlined style={iconStyle} />,
   },
   {
-    label: "文字",
+    label: "Text",
     value: "text",
     icon: <FileTextOutlined style={iconStyle} />,
   },
   {
-    label: "图片",
+    label: "Image",
     value: "image",
     icon: <PictureOutlined style={iconStyle} />,
   },
   {
-    label: "形状",
+    label: "Shape",
     value: "shape",
     icon: <BorderOutlined style={iconStyle} />,
   },
-
-  // {
-  //   label: "画笔",
-  //   value: "paint",
-  //   icon: <BulbOutlined style={iconStyle} />,
-  // },
-  // {
-  //   label: "应用",
-  //   value: "app",
-  //   icon: <AppstoreOutlined style={iconStyle} />,
-  // },
 ];
 
 export default function Panel() {
