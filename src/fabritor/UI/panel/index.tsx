@@ -17,6 +17,7 @@ import DesignPanel from "./DesignPanel";
 import { GloablStateContext } from "@/context";
 import AppPanel from "./AppPanel";
 import { PANEL_WIDTH } from "@/config";
+import TemplatePanel from "./TemplatePanel";
 
 import "./index.scss";
 
@@ -31,6 +32,11 @@ const siderStyle: React.CSSProperties = {
 const iconStyle = { fontSize: 18, marginRight: 0 };
 
 const OBJECT_TYPES = [
+  {
+    label: "模板",
+    value: "template",
+    icon: <AppstoreOutlined style={iconStyle} />,
+  },
   {
     label: "图层",
     value: "design",
@@ -47,20 +53,21 @@ const OBJECT_TYPES = [
     icon: <PictureOutlined style={iconStyle} />,
   },
   {
-    label: "素材",
+    label: "形状",
     value: "shape",
     icon: <BorderOutlined style={iconStyle} />,
   },
-  {
-    label: "画笔",
-    value: "paint",
-    icon: <BulbOutlined style={iconStyle} />,
-  },
-  {
-    label: "应用",
-    value: "app",
-    icon: <AppstoreOutlined style={iconStyle} />,
-  },
+
+  // {
+  //   label: "画笔",
+  //   value: "paint",
+  //   icon: <BulbOutlined style={iconStyle} />,
+  // },
+  // {
+  //   label: "应用",
+  //   value: "app",
+  //   icon: <AppstoreOutlined style={iconStyle} />,
+  // },
 ];
 
 export default function Panel() {
@@ -75,6 +82,9 @@ export default function Panel() {
     }
     if (value === "image") {
       return <ImagePanel />;
+    }
+    if (value === "template") {
+      return <TemplatePanel />;
     }
     if (value === "shape") {
       return <ShapePanel />;
