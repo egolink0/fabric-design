@@ -149,7 +149,7 @@ export default function CommonSetter() {
         </ToolbarItem>
         <ToolbarItem
           tooltipProps={{ placement: "top" }}
-          title="Create a copy"
+          title="Deduplicate"
           onClick={async () => {
             await copyObject(editor.canvas, object);
             await pasteObject(editor.canvas);

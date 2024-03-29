@@ -1,6 +1,5 @@
 import { createFImage } from "@/editor/objects/image";
 import React, { useContext, useEffect, useRef, useState } from "react";
-import ImageSelector from "@/fabritor/components/ImageSelector";
 import { GloablStateContext } from "@/context";
 import { fabric } from "fabric";
 import t1 from "./t1.json";

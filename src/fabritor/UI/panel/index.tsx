@@ -110,6 +110,7 @@ export default function Panel() {
     <Sider style={siderStyle} width={PANEL_WIDTH} className="fabritor-sider">
       <Tabs
         tabPosition="left"
+        className="tabs"
         style={{ flex: 1, overflow: "auto" }}
         size="small"
         onChange={handleTabChange}

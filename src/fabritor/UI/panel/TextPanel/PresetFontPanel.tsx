@@ -79,7 +79,7 @@ export default function PresetFontPanel(props) {
 
   return (
     <Flex vertical gap={8} style={{ marginTop: 16 }}>
-      <Title>Default text style</Title>
+      <Title>Default</Title>
       {PRESET_FONT_LIST.map((item) => (
         <Card
           key={item.key}

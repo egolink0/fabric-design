@@ -58,7 +58,7 @@ const ContextMenu = (props, ref) => {
         key: "paste",
       },
       {
-        label: "create a copy",
+        label: "deduplicate",
         key: "copy&paste",
       },
       {

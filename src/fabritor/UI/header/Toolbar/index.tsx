@@ -72,10 +72,7 @@ export default function Toolbar() {
         <RedoOutlined style={{ fontSize: 20 }} />
       </ToolbarItem>
       <ToolbarDivider />
-      <ToolbarItem
-        onClick={enablePan}
-        title={panEnable ? "Select element" : "Drag the canvas"}
-      >
+      <ToolbarItem onClick={enablePan} title={panEnable ? "Select" : "Drag"}>
         {panEnable ? (
           <DragOutlined
             style={{ fontSize: 22, color: panEnable ? "#000" : "#ccc" }}
@@ -87,7 +84,7 @@ export default function Toolbar() {
           />
         )}
       </ToolbarItem>
-      <ToolbarItem onClick={clearCanvas} title="Clear the canvas">
+      <ToolbarItem onClick={clearCanvas} title="Clear">
         <ClearOutlined style={{ fontSize: 20 }} />
       </ToolbarItem>
     </CenterV>

@@ -14,6 +14,7 @@
   cursor: pointer;
   border: 2px solid transparent;
   box-sizing: border-box;
+
   &:hover {
     border: 2px solid rgba(255, 34, 34, 0.5) !important;
   }
@@ -21,6 +22,7 @@
 
 .fabritor-sider {
   position: relative;
+
   .ant-layout-sider-children {
     display: flex;
     flex-direction: column;
@@ -35,5 +37,11 @@
     overflow: auto;
     z-index: 99;
     background-color: #fff;
+  }
+
+  .tabs {
+    .ant-tabs-nav-list .ant-tabs-tab {
+      justify-content: center;
+    }
   }
 }
