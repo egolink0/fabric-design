@@ -122,12 +122,6 @@ export default function Panel() {
           };
         })}
       />
-      <FloatButton
-        icon={<GithubFilled />}
-        style={{ left: 10, bottom: 14 }}
-        href="https://github.com/sleepy-zone/fabritor-web"
-        target="_blank"
-      />
     </Sider>
   );
 }

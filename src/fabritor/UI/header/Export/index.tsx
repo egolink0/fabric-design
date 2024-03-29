@@ -117,7 +117,7 @@ export default function Export() {
         paddingRight: 16,
       }}
     >
-      <Button onClick={selectJsonFile}>Load Template</Button>
+      {/* <Button onClick={selectJsonFile}>Load Template</Button> */}
       <Dropdown
         menu={{ items, onClick: handleClick }}
         arrow={{ pointAtCenter: true }}

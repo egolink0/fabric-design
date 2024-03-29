@@ -173,7 +173,7 @@ export default function CommonSetter() {
         ) : null}
       </CenterV>
       <Divider style={{ margin: "16px 0" }} />
-      <span style={{ fontWeight: "bold" }}>Align the canvas</span>
+      <span style={{ fontWeight: "bold" }}>Align</span>
       <CenterV
         height={30}
         gap={8}

@@ -7,6 +7,7 @@ import t2 from "./t2.json";
 import Editor from "@/editor";
 import { Flex, Image } from "antd";
 import { uuid } from "@/utils";
+import LoadLocalTemplate from "./LoadLocalTemplate";
 
 export default function TemplatePanel() {
   const { editor } = useContext(GloablStateContext);
@@ -42,7 +43,6 @@ export default function TemplatePanel() {
         changedTextMap[uid] = t;
       }
     });
-    console.log(ordered, changedTextMap);
 
     // replace by ordered
     const loopReplace = (objects: any[]) => {
@@ -66,23 +66,22 @@ export default function TemplatePanel() {
     return { json, img };
   };
 
-  const flow = async () => {
+  const flow = async (jsonList) => {
     const textList = ["WeChat", "WeChat Reading: Explore, Connect, Enjoy!"];
     jsonList.forEach((item) => changeJsonText(item, textList));
     const res = [];
-
-    console.log("jsonList", JSON.parse(JSON.stringify(jsonList)));
 
     for (let item of jsonList) {
       const data = await paintTemplateImg(item);
       res.push(data);
     }
-    setDataSource(res);
+    setDataSource((prev) => prev.concat(res));
+    return res;
   };
 
   useEffect(() => {
     if (bgEditor) {
-      flow();
+      flow(jsonList);
     }
   }, [bgEditor]);
 
@@ -147,11 +146,18 @@ export default function TemplatePanel() {
     });
   };
 
+  const addNewJson = async () => {
+    const res = await flow([json]);
+    console.log("dataSource", res);
+    applyToEditor(res[0].json);
+  };
+
   return (
     <>
       <div ref={workspaceEl} style={{ display: "none" }}>
         <canvas ref={canvasRef} style={{ display: "none" }} />
       </div>
+      <LoadLocalTemplate addNewJson={addNewJson} />
       {renderList()}
     </>
   );
