@@ -86,6 +86,7 @@ export default class Editor {
       height: workspaceEl.offsetHeight,
       backgroundColor: "#ddd",
       preserveObjectStacking: true,
+      imageSmoothingEnabled: false,
     });
   }
 
