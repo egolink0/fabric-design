@@ -6,7 +6,7 @@ import { GroupOutlined, HeartTwoTone } from "@ant-design/icons";
 import ContextMenu from "@/fabritor/components/ContextMenu";
 import DEMO_JSON from "@/assets/demo.json";
 
-export default function Layer() {
+export default function LayerPanel() {
   const {
     isReady,
     setReady,
