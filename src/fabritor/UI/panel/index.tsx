@@ -13,7 +13,7 @@ import TextPanel from "./TextPanel";
 import ImagePanel from "./ImagePanel";
 import ShapePanel from "./ShapePanel";
 import PaintPanel from "./PaintPanel";
-import DesignPanel from "./DesignPanel";
+import LayerPanel from "./LayerPanel";
 import { GlobalStateContext } from "@/context";
 import AppPanel from "./AppPanel";
 import { PANEL_WIDTH } from "@/config";
@@ -39,7 +39,7 @@ const OBJECT_TYPES = [
   },
   {
     label: "Layer",
-    value: "design",
+    value: "layer",
     icon: <AlertOutlined style={iconStyle} />,
   },
   {
@@ -63,8 +63,8 @@ export default function Panel() {
   const { editor } = useContext(GlobalStateContext);
 
   const renderPanel = (value) => {
-    if (value === "design") {
-      return <DesignPanel />;
+    if (value === "layer") {
+      return <LayerPanel />;
     }
     if (value === "text") {
       return <TextPanel />;
