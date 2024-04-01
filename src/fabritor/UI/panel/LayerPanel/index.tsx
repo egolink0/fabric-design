@@ -4,7 +4,7 @@ import { GlobalStateContext } from "@/context";
 import { SKETCH_ID } from "@/utils/constants";
 import { GroupOutlined, HeartTwoTone } from "@ant-design/icons";
 import ContextMenu from "@/fabritor/components/ContextMenu";
-import DEMOJSON from "@/assets/demo.json";
+import DEMO_JSON from "@/assets/demo.json";
 
 export default function Layer() {
   const {
@@ -47,7 +47,7 @@ export default function Layer() {
 
   const loadDemo = async () => {
     setReady(false);
-    await editor.loadFromJSON(DEMOJSON, true);
+    await editor.loadFromJSON(DEMO_JSON, true);
     editor.fhistory.reset();
     setReady(true);
     setActiveObject(null);
