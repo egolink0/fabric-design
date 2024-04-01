@@ -1,7 +1,7 @@
 {
-  "name": "fabritor-web",
-  "version": "3.0.1",
-  "description": "fabritor-web",
+  "name": "fabritor",
+  "version": "3.0.2",
+  "description": "fabritor",
   "dependencies": {
     "@ant-design/icons": "^5.2.6",
     "@emoji-mart/data": "^1.1.2",

@@ -4,6 +4,7 @@ import { GlobalStateContext } from "@/context";
 import { fabric } from "fabric";
 import t1 from "./t1.json";
 import t2 from "./t2.json";
+import t3 from "./t3.json";
 import Editor from "@/editor";
 import { Flex, Image } from "antd";
 import { uuid } from "@/utils";
@@ -17,7 +18,7 @@ export default function TemplatePanel() {
   const [dataSource, setDataSource] = useState([]);
   const [bgEditor, setBgEditor] = useState();
 
-  const jsonList = [t1, t2];
+  const jsonList = [t1, t2, t3];
 
   const changeJsonText = (json, textList) => {
     const res = {};
@@ -66,7 +67,7 @@ export default function TemplatePanel() {
   };
 
   const flow = async (jsonList) => {
-    const textList = ["WeChat", "WeChat Reading: Explore, Connect, Enjoy!"];
+    const textList = ["WeChat", " Enjoy!"];
     jsonList.forEach((item) => changeJsonText(item, textList));
     const res = [];
 

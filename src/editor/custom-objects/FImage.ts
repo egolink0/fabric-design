@@ -4,7 +4,7 @@ export const createFImageClass = () => {
   fabric.FImage = fabric.util.createClass(fabric.Group, {
     type: "f-image",
 
-    initialize(options, alreayGrouped = false) {
+    initialize(options, alreadyGrouped = false) {
       const { image, imageBorder = {}, ...rest } = options;
       image.set({
         originX: "center",
@@ -25,7 +25,7 @@ export const createFImageClass = () => {
           imageBorder,
           ...rest,
         },
-        alreayGrouped,
+        alreadyGrouped,
       );
     },
 
