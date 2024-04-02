@@ -1,7 +1,7 @@
 {
-  "name": "fabritor",
-  "version": "3.0.2",
-  "description": "fabritor",
+  "name": "fabric-design",
+  "version": "3.0.1",
+  "description": "fabric-design",
   "dependencies": {
     "@ant-design/icons": "^5.2.6",
     "@dnd-kit/core": "^6.1.0",
@@ -50,5 +50,5 @@
     "access": "public"
   },
   "license": "MIT",
-  "repository": "git@github.com:ice-lab/react-materials.git"
+  "repository": "https://github.com/egolink0/fabric-design.git"
 }
