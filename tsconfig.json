@@ -16,10 +16,9 @@
     "strictNullChecks": false,
     "skipLibCheck": true,
     "paths": {
-      "@/*": ["./src/*"],
-      "ice": [".ice"]
+      "@/*": ["./src/*"]
     }
   },
-  "include": ["src", ".ice"],
-  "exclude": ["build"]
+  "include": ["src"],
+  "exclude": ["node_modules", "dist", "build"]
 }

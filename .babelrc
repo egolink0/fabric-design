@@ -1,0 +1,9 @@
+{
+  // babel-plugin-transform-class-properties 对 es6 class 进行转换插件
+  // @babel/plugin-transform-runtime // 帮助你节省代码体积
+  "presets": ["@babel/env"],
+  "plugins": [
+    "@babel/plugin-transform-runtime",
+    "@babel/plugin-transform-class-properties"
+  ]
+}

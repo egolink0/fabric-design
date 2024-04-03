@@ -10,7 +10,7 @@ import { Flex, Image } from "antd";
 import { uuid } from "@/utils";
 
 export default function TemplatePanel() {
-  const { editor } = useContext(GlobalStateContext);
+  const { editor, setReady } = useContext(GlobalStateContext);
 
   const canvasRef = useRef();
   const workspaceEl = useRef();
