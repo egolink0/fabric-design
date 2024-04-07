@@ -60,7 +60,7 @@
     "webpack-dev-server": "^5.0.4"
   },
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server  --config ./webpack/webpack.dev.js",
     "build": "webpack --config ./webpack/webpack.dev.js",
     "build:npm": "webpack --config ./webpack/webpack.npm.js",
     "surge": "yarn build && cd build && surge",

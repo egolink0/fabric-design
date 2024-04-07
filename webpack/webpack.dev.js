@@ -14,5 +14,7 @@ module.exports = merge(baseConfig, {
   devtool: "inline-source-map",
   devServer: {
     hot: true,
+    port: 4000,
+    open: true,
   },
 });
