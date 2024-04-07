@@ -67,7 +67,7 @@ export const FONT_PRESET_FAMILY_LIST = [
   },
 ];
 
-export const SKETCH_ID = "fabric-design";
+export const SKETCH_ID = "fabritor";
 
 export const FABRITOR_CUSTOM_PROPS = [
   "id",

@@ -1,9 +1,8 @@
 {
-  "name": "fabric-design",
-  "version": "1.0.0",
-  "description": "fabric-design",
+  "name": "fabritor",
+  "version": "1.0.1",
+  "description": "fabritor",
   "main": "./src/main.ts",
-  "private": false,
   "files": [
     "./dist/bundle.js"
   ],
