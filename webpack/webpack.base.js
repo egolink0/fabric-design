@@ -3,14 +3,14 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack"); // 访问内置的插件
 
 module.exports = {
-  entry: "./src/index.tsx", // 配置打包入口文件
-  mode: "development",
-  output: {
-    // 配置打包完成的出口文件 路径
-    path: path.resolve(__dirname, "./dist/"),
-    filename: "bundle.js", // 输出文件名
-    clean: true, // 打包之前清理dist文件夹
-  },
+  // entry: "./src/index.tsx", // 配置打包入口文件
+  // mode: "development",
+  // output: {
+  //   // 配置打包完成的出口文件 路径
+  //   path: path.resolve(__dirname, "./dist/"),
+  //   filename: "bundle.js", // 输出文件名
+  //   clean: true, // 打包之前清理dist文件夹
+  // },
   module: {
     rules: [
       {
@@ -69,15 +69,15 @@ module.exports = {
   // optimization: {
   //   minimizer: new CssMinimizerWebpackPlugin(),
   // },
-  devServer: {
-    hot: true,
-  },
+  // devServer: {
+  //   hot: true,
+  // },
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx"], //表示在import 文件时文件后缀名可以不写
     // 设置别名
     alias: {
-      "@": path.resolve(__dirname, "src"), // 这样配置后 @ 可以指向 src 目录
+      "@": path.resolve(__dirname, "../src"), // 这样配置后 @ 可以指向 src 目录
     },
   },
-  devtool: "inline-source-map",
+  // devtool: "inline-source-map",
 };

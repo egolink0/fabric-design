@@ -1,5 +1,4 @@
 import "./font.css";
-import Fabritor from "@/fabritor";
 import App from "./App";
 import { createRoot } from "react-dom/client";
 import React from "react";

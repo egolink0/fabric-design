@@ -1,7 +1,12 @@
 {
   "name": "fabric-design",
-  "version": "3.0.2",
+  "version": "1.0.0",
   "description": "fabric-design",
+  "main": "./src/main.ts",
+  "private": false,
+  "files": [
+    "./dist/bundle.js"
+  ],
   "dependencies": {
     "@ant-design/icons": "^5.2.6",
     "@dnd-kit/core": "^6.1.0",
@@ -23,7 +28,8 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.3",
     "roughjs": "^4.6.6",
-    "uuid": "^9.0.1"
+    "uuid": "^9.0.1",
+    "webpack-merge": "^5.10.0"
   },
   "devDependencies": {
     "@babel/core": "^7.13.14",
@@ -56,7 +62,8 @@
   },
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "webpack --config webpack.config.js",
+    "build": "webpack --config ./webpack/webpack.dev.js",
+    "build:npm": "webpack --config ./webpack/webpack.npm.js",
     "surge": "yarn build && cd build && surge",
     "eslint": "eslint ./src --cache --ext .js,.jsx,.ts,.tsx",
     "eslint:fix": "npm run eslint -- --fix",
@@ -67,5 +74,5 @@
     "access": "public"
   },
   "license": "MIT",
-  "repository": "git@github.com:egolink0/fabric-design.git"
+  "repository": "https://github.com/egolink0/fabric-design.git"
 }
