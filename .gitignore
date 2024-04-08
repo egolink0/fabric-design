@@ -27,3 +27,4 @@ pnpm-debug.log*
 .eslintcache
 .stylelintcache
 dist/
+lib/
