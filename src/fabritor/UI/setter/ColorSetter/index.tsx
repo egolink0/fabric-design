@@ -1,5 +1,5 @@
 import { Popover } from "antd";
-import { ColorsPicker, Color } from "react-colors-beauty";
+import { ColorsPicker, Color } from "react-color-beauty-picker";
 
 // @TODO preset size
 export default function ColorSetter(props) {
@@ -22,19 +22,6 @@ export default function ColorSetter(props) {
         return "rgba(0, 0, 0, 0.88)";
     }
   };
-
-  // const calcBackgroundColor = () => {
-  //   switch(value?.type) {
-  //     case 'solid':
-  //       return value.color;
-  //     case 'linear':
-  //       return `linear-gradient(${value.gradient?.angle}deg, ${value.gradient?.colorStops.map(stop => `${stop.color} ${stop.offset * 100}%`)})`;
-  //     case 'radial':
-  //       return `radial-gradient(at 50% 50%, ${value.gradient?.colorStops.map(stop => `${stop.color} ${stop.offset * 100}%`)})`;
-  //     default:
-  //       return 'rgba(0, 0, 0, 0.88)';
-  //   }
-  // }
 
   const calcTriggerBg = () => {
     if (value?.type === "solid") {

@@ -1,6 +1,6 @@
 {
   "name": "fabritor",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "fabritor",
   "main": "./src/main.ts",
   "files": [
@@ -16,14 +16,13 @@
     "@emoji-mart/react": "^1.1.1",
     "antd": "^5.11.0",
     "cropperjs": "^1.6.1",
-    "emoji-mart": "^5.5.2",
     "fabric": "^5.3.0",
     "fontfaceobserver": "^2.3.0",
     "hotkeys-js": "^3.12.0",
     "lodash-es": "^4.17.21",
     "prettier": "^3.2.5",
     "react": "^18.2.0",
-    "react-colors-beauty": "1.0.3",
+    "react-color-beauty-picker": "^0.0.2",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.3",
     "roughjs": "^4.6.6",

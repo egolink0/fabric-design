@@ -1,5 +1,5 @@
 import { Popover } from "antd";
-import { Color, ColorPicker } from "react-colors-beauty";
+import { Color, ColorPicker } from "react-color-beauty-picker";
 
 export default function SolidColorSetter(props) {
   const { value, onChange, trigger } = props;
